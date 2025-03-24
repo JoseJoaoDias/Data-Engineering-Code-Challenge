@@ -1,104 +1,77 @@
-# Data Engineering Code Challenge
-Data Engineering Code Challenge (PySpark)
+# Data Processing Pipeline Documentation
 
-## Objective:
-The purpose of this challenge is to evaluate your skills in data engineering, particularly in working with PySpark for data processing and transformation tasks. This challenge mimics real-world scenarios you might encounter in the role.
+## Project Overview:
+This project processes, analysis and infer some insights from raw data related to sales, products and stores. Trough the use of a data pipeline in Pyspark will be able to infer severall insigths regarding the data, producing two output files, one in Parquet formatt and another in CSV formatt. The process loads, validates and transforms the data to achieve teh final result.
 
-### Technical information:
-- Use **Python** and **PySpark** [https://spark.apache.org/docs/latest/api/python/getting_started/install.html]
-- Use the following package for PySpark tests - https://github.com/MrPowers/chispa - the application **needs** to have tests.
-- **Do not use** notebooks for final delivery, like **Jupyter** for instance. While these are good for interactive work and/or prototyping in this case they shouldn't be used.
-- The application should have an automated build pipeline using GitHub Actions.
-- Follow best practices by using descriptive commit messages.
-- Use **logging** to show information about what the application is doing, avoid using **print** statements, but feel free to use them in the tests for your own debugging purposes. However, they should not be there in the final version.
-- Use type hints and docstrings as much as possible to enhance code documentation and readability.
-- Consider using linters and code formatters and have it the Continuous Integration step of your automated build.
 
-## Background:
-You work for a company that analyzes retail sales data from various stores. Your task is to process raw transactional data, generate insights, and save the transformed data for further analysis.
-
-The raw data consists of:
-- A **Sales Transactions** dataset with information about products sold, quantities, and prices.
-- A **Products** dataset containing product details.
-- A **Stores** dataset with details about stores.
-
-### Data Description
-1. **Sales Transactions** Dataset (sales.csv):
-    - ```transaction_id```: Unique identifier for the transaction.
-    - ```store_id```: ID of the store where the transaction occurred.
-    - ```product_id```: ID of the product sold.
-    - ```quantity```: Number of units sold.
-    - ```transaction_date```: Date of the transaction (format: YYYY-MM-DD).
-    - ```price```: Price per unit.
-2. **Products** Dataset (products.csv):
-    - ```product_id```: Unique identifier for the product.
-    - ```product_name```: Name of the product.
-    - ```category```: Category of the product.
-3. **Stores** Dataset (stores.csv):
-    - ```store_id```: Unique identifier for the store.
-    - ```store_name```: Name of the store.
-    - ```location```: Location of the store.
-
-## Tasks
-You need to perform the following tasks using PySpark:
-1. Part 1: **Data Preparation**
-- Load the three datasets (sales.csv, products.csv, and stores.csv) into PySpark DataFrames.
-- Perform basic data validation:
-    - Check for missing or null values as well as inconsistencies in the data format.
-    - Identify and handle duplicates, if any.
-    - Enforce the appropriate data types for all columns.
-
-2. Part 2: **Data Transformation**
-
-    **Sales Aggregation**:
-    - Calculate the total revenue for each store (store_id) and each product category.
-    - Output: DataFrame with store_id, category, and total_revenue.
-
-    **Monthly Sales Insights**:
-    - Calculate the total quantity sold for each product category, grouped by month.
-    - Output: DataFrame with year, month, category, and total_quantity_sold.
-
-    **Enrich Data**:
-    - Combine the sales, products, and stores datasets into a single enriched dataset with the following columns:
-```transaction_id```, ```store_name```, ```location```, ```product_name```, ```category```, ``quantity``, ``transaction_date``, and ```price```.
-
-    **PySpark UDF**:
-    - Implement a PySpark UDF to categorize products based on the following price ranges:
-
-        ```
-        Low: price < 20
-        Medium: 20 <= price <= 100
-        High: price > 100
-        ```
-
-    - Add a column price_category to the enriched dataset and save it as an additional output.
+## Approach to the problem:
+ ### Part 1 -  Data Preparation:
+    - Loading the raw CSV files for sales, products and stores into Pyspark DataFrames.
+    - Ensure the Dataframes have the the right schema, and data types.
+    - Ensure the null and duplicated values are eliminated.
+ ### Part 2 -  Data Transformation:
+    - Aggregating data to compute total revenue by store_id and category.
+    - Aggregating data to compute total quantity by month and category.
+    - Creation of an enriched dataframe that contains information from all the dataframes.
+    - Possibility to categorize the price based on rules.
+ ### Part 3: Data Export:
+    - Exporting monthly insights (total quantity by month and category) as CSV file.
+    - Exporting enriched dataframe as Parquet file.
 
 
 
-3. Part 3: **Data Export**
-    - Save the enriched dataset from Part 2, Task 3, in Parquet format, partitioned by category and transaction_date.
-    - Save the store_id-level revenue insights (from Part 2, Task 1) in CSV format.
+## Assumptions and Decisions.
+ ### Assumptions.
+  Environment: The code is assumed to be executed within a PySpark environment with access to necessary libraries.
+  Data Format: The CSV files used as input are formatted correctly with headers matching the expected structure.
+  Spark Configuration: A SparkSession instance must be initialised for the pipeline to run.
 
-    
-## Deliverables
-- Your solution should be uploaded and submitted using this repo as base (download, clone, for is not allowed)
-- Your solution should follow good project architecture.
+### Decisions:
+Data Validation
 
-- **Output files**:
-    - Enriched dataset in Parquet format.
-    - Revenue insights in CSV format.
-    - Create a documentation file in Markdown for documenting your project including:
-        - Your approach to the problem.
-        - Any assumptions or decisions made.
-        - Steps to run the code and reproduce results.
+    Static Schemas: Defined and enforced for the products, stores, and sales datasets based on the challenge specifications.
 
-- **Submission Guidelines**
-    - Once you finish the challenge ping us via the contact mail we provided. 
+    Data Type Enforcement: Data types for all columns are validated against the defined schemas to ensure consistency during processing.
 
-## Evaluation Criteria
-- Correctness and completeness of the solution.
-- Efficient use of PySpark for data processing.
-- Code quality (readability, comments, modularity, good practices).
-- Adherence to the deliverable format and instructions.
-- Handling of edge cases and data validation.
+Data Quality
+
+    Missing Values: Rows containing null values in any critical fields are dropped during preprocessing.
+
+    Duplicate Handling: Duplicates are removed from all datasets using their unique identifiers 
+
+Price Categorization (Optional)
+
+    Functionality: A dedicated function was implemented to generate a price category (Low, Medium, High) as an optional enrichment step.
+
+    Optional Output: This step is configurable and can be enabled or disabled depending on the use case.
+
+Data Export
+
+    Output Directory: All output files, including cleaned and enriched datasets, are saved to the /output/ directory.
+
+
+### Prerequisites
+Ensure you have installed the required libraries by running:
+
+pip install -r requirements.txt
+
+Running the Code
+Prepare the data: Ensure that the raw data files (sales_uuid.csv, products_uuid.csv, stores_uuid.csv) are available in the data directory.
+Run the main script: The main script, located in main.py, orchestrates the entire pipeline. Run it using:
+
+python main.py
+
+### Testing: To test the individual classes and methods, run pytest on the test files located in the tests directory:
+
+pytest tests/
+
+Expected Output
+
+    The output data is stored in the output_data directory. The transformed data is saved in various formats such as CSV and Parquet.
+    Logs generated during execution can be found in the console or in a specified log file for debugging purposes.
+
+### File Structure
+
+
+
 
