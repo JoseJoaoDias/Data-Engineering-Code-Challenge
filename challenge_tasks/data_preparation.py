@@ -10,11 +10,12 @@ It includes functions to:
 """
 #Import necessary libraries
 
-from pyspark.sql import SparkSession,DataFrame
+from pyspark.sql import DataFrame
 import os
 import logging
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType,DateType
 from pyspark.sql.functions import col,date_format,to_date, coalesce,trim
+from challenge_tasks.spark_session import spark
 
 ## Setup logging configuration
 # Path to logs file
@@ -34,12 +35,12 @@ logging.basicConfig(
 
 logger=logging.getLogger(__name__)
 
-# Create Spark Session
-spark = SparkSession.builder \
-    .appName("Data Preparations App") \
-    .config("spark.hadoop.hadoop.native.lib", "false") \
-    .master("local[*]") \
-    .getOrCreate()
+# # Create Spark Session
+# spark = SparkSession.builder \
+#     .appName("Data Preparations App") \
+#     .config("spark.hadoop.hadoop.native.lib", "false") \
+#     .master("local[*]") \
+#     .getOrCreate()
 
 # Load the datsets products,sales and stores into Pyspark Dataframes
 def read_csv_into_pyspark_dataframe(file_path: str) -> DataFrame:

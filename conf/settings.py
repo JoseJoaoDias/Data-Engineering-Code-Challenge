@@ -1,5 +1,5 @@
 """
-Script where it's spresensts configurations aboout the app, mainly paths for the different folders.
+Script for configurations aboout the app, mainly paths for the different folders.
 
 """
 # Import important libraries
@@ -16,4 +16,4 @@ SALES_FILE = f"{DATA_PATH}/sales_uuid.csv"
 STORES_FILE = f"{DATA_PATH}/stores_uuid.csv"
 
 # Output Path
-OUTPUT = f"{BASE_PATH}/output"
+OUTPUT_PATH = f"{BASE_PATH}/output/"
