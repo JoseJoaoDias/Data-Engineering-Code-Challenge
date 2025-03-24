@@ -118,3 +118,20 @@
 2025-03-24 05:58:47,792 - WARNING - Casting column transaction_date from StringType() to DateType()
 2025-03-24 05:58:47,943 - INFO - Validation complete
 2025-03-24 05:58:49,682 - INFO - Closing down clientserver connection
+2025-03-24 06:06:56,070 - INFO - Loading csv file
+2025-03-24 06:06:58,700 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:06:58,700 - INFO - Loading csv file
+2025-03-24 06:06:58,913 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:06:58,913 - INFO - Loading csv file
+2025-03-24 06:06:59,142 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:06:59,143 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:06:59,143 - INFO - Schemas do match
+2025-03-24 06:06:59,143 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:06:59,284 - INFO - Validation complete
+2025-03-24 06:06:59,284 - INFO - Validating Products Dataframe ...
+2025-03-24 06:06:59,284 - INFO - Schemas do match
+2025-03-24 06:06:59,322 - INFO - Validation complete
+2025-03-24 06:06:59,989 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:06:59,990 - INFO - Schemas do match
+2025-03-24 06:07:00,022 - INFO - Validation complete
+2025-03-24 06:07:00,927 - INFO - Closing down clientserver connection

@@ -57,7 +57,7 @@ def read_csv_into_pyspark_dataframe(file_path: str) -> DataFrame:
     logging.info(f'Dataset was loaded sucessfully from {file_path}. The dataset has Rows: {df.count()}, Columns: {len(df.columns)}')
     
     return df
-def sales_Validation(df : DataFrame) -> DataFrame:
+def sales_validation(df : DataFrame) -> DataFrame:
     """
     Validates the data types against the sales columns in the dataframe
     Enforces the expected data types tothe sales dataframe
@@ -97,7 +97,7 @@ def sales_Validation(df : DataFrame) -> DataFrame:
     else:
         logging.info("Schemas do match")
 
-    # # Enforcing data types based on the expected schema 
+    # Enforcing data types based on the expected schema 
     for field in expected_schema:
         if actual_schema[field.name] != field.dataType:
             logging.warning(f"Casting column {field.name} from {actual_schema[field.name]} to {field.dataType}")
@@ -118,7 +118,7 @@ def sales_Validation(df : DataFrame) -> DataFrame:
             else:
                 df = df.withColumn(field.name, col(field.name).cast(field.dataType))
         
-    # # Drop duplicates in  column transaction_id   
+    # Drop Nulls in all columns if any
     for c in df.columns:
         df = df.filter(
             (~col(c).contains("None")) &  # Filter out 'None' as string
@@ -127,8 +127,103 @@ def sales_Validation(df : DataFrame) -> DataFrame:
             (col(c).isNotNull())  # Remove actual nulls
         )
         
-    # Drop duplicates in  column transaction_id   
+    # Drop duplicates in  column transaction_id if any
     df=df.drop_duplicates(['transaction_id'])
+    logging.info("Validation complete")
+
+    return df
+
+def products_validation(df : DataFrame) -> DataFrame:
+    """
+    Validates the data types against the product columns in the dataframe
+    Validates the schema of products dataframe
+    Check and remove null values on the dataframe
+    Removes duplicates present in product_id column
+
+    Args: 
+    df (DataFrame) : Products dataframe
+
+    Return:
+    df (Dataframe) : Pyspark Dataframe with products data validated
+
+    """
+    logger.info('Validating Products Dataframe ...')
+    # Expected schema for Products Dataframe
+    expected_schema = StructType([
+    StructField("product_id", StringType(), True),
+    StructField("product_name", StringType(), True),
+    StructField("category", StringType(), True)
+    ])
+
+    # Creation of dictionarys column name and data type to compare schemas
+    actual_schema = {field.name: field.dataType for field in df.schema}
+    expected_schema_dict = {field.name: field.dataType for field in expected_schema}
+
+    # Comparisson between the expcted schema and sales dataframe (order does not matter!) 
+    if set(actual_schema.keys()) != set(expected_schema_dict.keys()):
+            missing_columns = set(expected_schema_dict.keys()) - set(actual_schema.keys())
+            extra_columns = set(actual_schema.keys()) - set(expected_schema_dict.keys())
+            logging.error(f"Schemas do not match. Missing columns: {missing_columns}, Extra columns: {extra_columns}")
+    else:
+        logging.info("Schemas do match")
+
+    # Drop Nulls in all columns if any
+    for c in df.columns:
+        df = df.filter(
+            (~col(c).contains("None")) &  # Filter out 'None' as string
+            (~col(c).contains("NULL")) &  # Filter out 'NULL' as string
+            (trim(col(c)) != "") &  # Filter out empty strings
+            (col(c).isNotNull())  # Remove actual nulls
+        )
+    # Drop duplicates in  column product_id if any
+    df=df.drop_duplicates(['product_id'])
+    logging.info("Validation complete")
+
+    return df
+
+def stores_validation(df : DataFrame) -> DataFrame:
+    """
+    Validates the data types against the stores columns in the dataframe
+    Validates the schema of stores dataframe
+    Check and remove null values on the dataframe
+    Removes duplicates present in store_id column
+
+    Args: 
+    df (DataFrame) : sales dataframe
+
+    Return:
+    df (Dataframe) : Pyspark Dataframe with store data validated
+    """
+    logger.info('Validating Stores Dataframe ...')
+    # Expected schema for Stores Dataframe
+    expected_schema = StructType([
+    StructField("store_id", StringType(), True),
+    StructField("store_name", StringType(), True),
+    StructField("location", StringType(), True)
+    ])
+
+    # Creation of dictionarys column name and data type to compare schemas
+    actual_schema = {field.name: field.dataType for field in df.schema}
+    expected_schema_dict = {field.name: field.dataType for field in expected_schema}
+    # Comparisson between the expcted schema and sales dataframe (order does not matter!) 
+
+    if set(actual_schema.keys()) != set(expected_schema_dict.keys()):
+            missing_columns = set(expected_schema_dict.keys()) - set(actual_schema.keys())
+            extra_columns = set(actual_schema.keys()) - set(expected_schema_dict.keys())
+            logging.error(f"Schemas do not match. Missing columns: {missing_columns}, Extra columns: {extra_columns}")
+    else:
+        logging.info("Schemas do match")
+
+    # Drop Nulls in all columns if any
+    for c in df.columns:
+        df = df.filter(
+            (~col(c).contains("None")) &  # Filter out 'None' as string
+            (~col(c).contains("NULL")) &  # Filter out 'NULL' as string
+            (trim(col(c)) != "") &  # Filter out empty strings
+            (col(c).isNotNull())  # Remove actual nulls
+        )
+    # Drop duplicates in  column store_id if any
+    df=df.drop_duplicates(['store_id'])
     logging.info("Validation complete")
 
     return df

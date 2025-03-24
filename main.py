@@ -7,7 +7,7 @@ from pyspark.sql import SparkSession
 import os
 import logging
 from conf import settings
-from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,sales_Validation
+from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,sales_validation,products_validation,stores_validation
 
 # import warnings
 # from conf import settings
@@ -47,5 +47,18 @@ df_products=read_csv_into_pyspark_dataframe(file_path=settings.PRODUCTS_FILE)
 df_stores=read_csv_into_pyspark_dataframe(file_path=settings.STORES_FILE)
 
 # Task 2 - Data validation
-df_sales=sales_Validation(df=df_sales)
-df_sales.show()
+df_sales=sales_validation(df=df_sales)
+df_products=products_validation(df=df_products)
+df_stores=stores_validation(df=df_stores)
+
+## Part 2 - Tasks
+# Task 1 - Sales Aggregation
+# Task 2 - Monthly Sales Insights
+# Task 3 - Enrich Data
+
+
+## Part 3 -Tasks
+# Task 1 - Save Enrich Data into a parquet format partitioned by category and transaction_date
+# Task 2 - Save revenue insights in CSV format
+
+
