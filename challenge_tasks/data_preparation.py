@@ -1,6 +1,11 @@
 """
-Script that contains the functions for data reading and validating data.
-Function read_csv_into_pyspark_dataframe reads an csv file into a PYSPARK DATAFRAME.
+Script for reading and validating datasets (sales, products, and stores) in PySpark.  
+It includes functions to:  
+- Load a CSV file into a PySpark DataFrame.  
+- Validate schemas and enforce correct data types.  
+- Handle missing or null values.  
+- Remove duplicates based on unique identifiers.  
+- Ensure data consistency for further processing.  
 
 """
 #Import necessary libraries
@@ -9,12 +14,9 @@ from pyspark.sql import SparkSession,DataFrame
 import os
 import logging
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType,DateType
-# import warnings
-# from conf import settings
-from pyspark.sql.functions import col,isnan, when, count,date_format,to_date, coalesce,trim
-# from pyspark.sql import functions as F
+from pyspark.sql.functions import col,date_format,to_date, coalesce,trim
 
-# Setup logging configuration
+## Setup logging configuration
 # Path to logs file
 log_dir = os.path.abspath("logs")  
 

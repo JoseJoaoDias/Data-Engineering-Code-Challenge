@@ -8,12 +8,7 @@ import os
 import logging
 from conf import settings
 from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,sales_validation,products_validation,stores_validation
-
-# import warnings
-# from conf import settings
-# from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType,DateType
-# from pyspark.sql.functions import col,isnan, when, count,date_format,to_date, coalesce
-# from pyspark.sql import functions as F
+from challenge_tasks.data_transformations import sales_aggregation,month_insights,enriched_data,price_range
 
 # Setup logging configuration
 # Path to logs file
@@ -52,10 +47,15 @@ df_products=products_validation(df=df_products)
 df_stores=stores_validation(df=df_stores)
 
 ## Part 2 - Tasks
-# Task 1 - Sales Aggregation
-# Task 2 - Monthly Sales Insights
-# Task 3 - Enrich Data
+# Task 1 - Sales Aggregation - 
+sales_agg=sales_aggregation(df_sales=df_sales,df_product=df_products,)
+# Task 2 - Monthly Sales Insights - 
+monthly_sales_insights= month_insights(df_sales=df_sales,df_product=df_products)
+# Task 3 - Enrich Data - 
 
+enriched_dataframe = enriched_data(df_sales=df_sales, df_product=df_products, df_stores=df_stores, add_price_category=True)
+for row in enriched_dataframe.take(5):
+    print(row)
 
 ## Part 3 -Tasks
 # Task 1 - Save Enrich Data into a parquet format partitioned by category and transaction_date

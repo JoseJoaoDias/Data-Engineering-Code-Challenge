@@ -135,3 +135,490 @@
 2025-03-24 06:06:59,990 - INFO - Schemas do match
 2025-03-24 06:07:00,022 - INFO - Validation complete
 2025-03-24 06:07:00,927 - INFO - Closing down clientserver connection
+2025-03-24 06:21:14,027 - INFO - Loading csv file
+2025-03-24 06:21:16,792 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:21:16,792 - INFO - Loading csv file
+2025-03-24 06:21:17,001 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:21:17,001 - INFO - Loading csv file
+2025-03-24 06:21:17,232 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:21:17,232 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:21:17,232 - INFO - Schemas do match
+2025-03-24 06:21:17,232 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:21:17,378 - INFO - Validation complete
+2025-03-24 06:21:17,379 - INFO - Validating Products Dataframe ...
+2025-03-24 06:21:17,379 - INFO - Schemas do match
+2025-03-24 06:21:17,414 - INFO - Validation complete
+2025-03-24 06:21:17,414 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:21:17,414 - INFO - Schemas do match
+2025-03-24 06:21:17,447 - INFO - Validation complete
+2025-03-24 06:21:17,447 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:21:17,500 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:21:20,098 - INFO - Closing down clientserver connection
+2025-03-24 06:28:38,414 - INFO - Loading csv file
+2025-03-24 06:28:41,124 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:28:41,124 - INFO - Loading csv file
+2025-03-24 06:28:41,342 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:28:41,342 - INFO - Loading csv file
+2025-03-24 06:28:41,570 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:28:41,570 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:28:41,570 - INFO - Schemas do match
+2025-03-24 06:28:41,570 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:28:41,736 - INFO - Validation complete
+2025-03-24 06:28:41,736 - INFO - Validating Products Dataframe ...
+2025-03-24 06:28:41,736 - INFO - Schemas do match
+2025-03-24 06:28:41,776 - INFO - Validation complete
+2025-03-24 06:28:41,776 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:28:41,776 - INFO - Schemas do match
+2025-03-24 06:28:41,806 - INFO - Validation complete
+2025-03-24 06:28:41,806 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:28:41,842 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:28:41,842 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:28:41,871 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:28:54,844 - INFO - Loading csv file
+2025-03-24 06:28:57,493 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:28:57,493 - INFO - Loading csv file
+2025-03-24 06:28:57,707 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:28:57,707 - INFO - Loading csv file
+2025-03-24 06:28:57,920 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:28:57,920 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:28:57,920 - INFO - Schemas do match
+2025-03-24 06:28:57,920 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:28:58,047 - INFO - Validation complete
+2025-03-24 06:28:58,047 - INFO - Validating Products Dataframe ...
+2025-03-24 06:28:58,047 - INFO - Schemas do match
+2025-03-24 06:28:58,079 - INFO - Validation complete
+2025-03-24 06:28:58,080 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:28:58,080 - INFO - Schemas do match
+2025-03-24 06:28:58,107 - INFO - Validation complete
+2025-03-24 06:28:58,107 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:28:58,158 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:28:58,159 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:28:58,189 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:29:00,516 - INFO - Closing down clientserver connection
+2025-03-24 06:46:06,193 - INFO - Loading csv file
+2025-03-24 06:46:08,955 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:46:08,955 - INFO - Loading csv file
+2025-03-24 06:46:09,162 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:46:09,162 - INFO - Loading csv file
+2025-03-24 06:46:09,381 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:46:09,381 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:46:09,381 - INFO - Schemas do match
+2025-03-24 06:46:09,381 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:46:09,533 - INFO - Validation complete
+2025-03-24 06:46:09,533 - INFO - Validating Products Dataframe ...
+2025-03-24 06:46:09,533 - INFO - Schemas do match
+2025-03-24 06:46:09,565 - INFO - Validation complete
+2025-03-24 06:46:09,566 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:46:09,566 - INFO - Schemas do match
+2025-03-24 06:46:09,595 - INFO - Validation complete
+2025-03-24 06:46:09,595 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:46:09,642 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:46:09,642 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:46:09,673 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:46:09,674 - INFO - Creating enriched dataset...
+2025-03-24 06:46:09,712 - INFO - Enriched dataset was created
+2025-03-24 06:46:11,888 - INFO - Closing down clientserver connection
+2025-03-24 06:46:37,134 - INFO - Loading csv file
+2025-03-24 06:46:39,812 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:46:39,812 - INFO - Loading csv file
+2025-03-24 06:46:40,035 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:46:40,035 - INFO - Loading csv file
+2025-03-24 06:46:40,258 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:46:40,258 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:46:40,258 - INFO - Schemas do match
+2025-03-24 06:46:40,259 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:46:40,389 - INFO - Validation complete
+2025-03-24 06:46:40,389 - INFO - Validating Products Dataframe ...
+2025-03-24 06:46:40,389 - INFO - Schemas do match
+2025-03-24 06:46:40,419 - INFO - Validation complete
+2025-03-24 06:46:40,419 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:46:40,419 - INFO - Schemas do match
+2025-03-24 06:46:40,443 - INFO - Validation complete
+2025-03-24 06:46:40,443 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:46:40,475 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:46:40,475 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:46:40,501 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:46:40,501 - INFO - Creating enriched dataset...
+2025-03-24 06:46:40,557 - INFO - Enriched dataset was created
+2025-03-24 06:47:37,627 - INFO - Loading csv file
+2025-03-24 06:47:40,279 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:47:40,280 - INFO - Loading csv file
+2025-03-24 06:47:40,510 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:47:40,510 - INFO - Loading csv file
+2025-03-24 06:47:40,737 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:47:40,737 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:47:40,737 - INFO - Schemas do match
+2025-03-24 06:47:40,737 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:47:40,889 - INFO - Validation complete
+2025-03-24 06:47:40,889 - INFO - Validating Products Dataframe ...
+2025-03-24 06:47:40,889 - INFO - Schemas do match
+2025-03-24 06:47:40,926 - INFO - Validation complete
+2025-03-24 06:47:40,926 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:47:40,926 - INFO - Schemas do match
+2025-03-24 06:47:40,957 - INFO - Validation complete
+2025-03-24 06:47:40,957 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:47:41,011 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:47:41,012 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:47:41,048 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:47:41,048 - INFO - Creating enriched dataset...
+2025-03-24 06:47:41,124 - INFO - Enriched dataset was created
+2025-03-24 06:48:25,818 - INFO - Loading csv file
+2025-03-24 06:48:28,531 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:48:28,531 - INFO - Loading csv file
+2025-03-24 06:48:28,766 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:48:28,766 - INFO - Loading csv file
+2025-03-24 06:48:29,014 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:48:29,014 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:48:29,014 - INFO - Schemas do match
+2025-03-24 06:48:29,014 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:48:29,163 - INFO - Validation complete
+2025-03-24 06:48:29,163 - INFO - Validating Products Dataframe ...
+2025-03-24 06:48:29,163 - INFO - Schemas do match
+2025-03-24 06:48:29,195 - INFO - Validation complete
+2025-03-24 06:48:29,195 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:48:29,195 - INFO - Schemas do match
+2025-03-24 06:48:29,222 - INFO - Validation complete
+2025-03-24 06:48:29,222 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:48:29,266 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:48:29,266 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:48:29,295 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:48:29,295 - INFO - Creating enriched dataset...
+2025-03-24 06:48:29,361 - INFO - Enriched dataset was created
+2025-03-24 06:48:41,955 - INFO - Loading csv file
+2025-03-24 06:48:44,703 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:48:44,703 - INFO - Loading csv file
+2025-03-24 06:48:44,926 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:48:44,926 - INFO - Loading csv file
+2025-03-24 06:48:45,138 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:48:45,138 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:48:45,138 - INFO - Schemas do match
+2025-03-24 06:48:45,138 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:48:45,287 - INFO - Validation complete
+2025-03-24 06:48:45,287 - INFO - Validating Products Dataframe ...
+2025-03-24 06:48:45,287 - INFO - Schemas do match
+2025-03-24 06:48:45,322 - INFO - Validation complete
+2025-03-24 06:48:45,322 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:48:45,322 - INFO - Schemas do match
+2025-03-24 06:48:45,353 - INFO - Validation complete
+2025-03-24 06:48:45,353 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:48:45,387 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:48:45,387 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:48:45,413 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:48:45,413 - INFO - Creating enriched dataset...
+2025-03-24 06:48:45,475 - INFO - Enriched dataset was created
+2025-03-24 06:50:02,973 - INFO - Loading csv file
+2025-03-24 06:50:05,721 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:50:05,721 - INFO - Loading csv file
+2025-03-24 06:50:05,953 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:50:05,953 - INFO - Loading csv file
+2025-03-24 06:50:06,189 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:50:06,189 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:50:06,189 - INFO - Schemas do match
+2025-03-24 06:50:06,189 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:50:06,311 - INFO - Validation complete
+2025-03-24 06:50:06,311 - INFO - Validating Products Dataframe ...
+2025-03-24 06:50:06,311 - INFO - Schemas do match
+2025-03-24 06:50:06,342 - INFO - Validation complete
+2025-03-24 06:50:06,342 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:50:06,342 - INFO - Schemas do match
+2025-03-24 06:50:06,375 - INFO - Validation complete
+2025-03-24 06:50:06,375 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:50:06,420 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:50:06,420 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:50:06,447 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:50:06,447 - INFO - Creating enriched dataset...
+2025-03-24 06:50:06,508 - INFO - Enriched dataset was created
+2025-03-24 06:51:01,076 - INFO - Loading csv file
+2025-03-24 06:51:03,798 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:51:03,798 - INFO - Loading csv file
+2025-03-24 06:51:03,999 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:51:03,999 - INFO - Loading csv file
+2025-03-24 06:51:04,244 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:51:04,244 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:51:04,244 - INFO - Schemas do match
+2025-03-24 06:51:04,244 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:51:04,406 - INFO - Validation complete
+2025-03-24 06:51:04,406 - INFO - Validating Products Dataframe ...
+2025-03-24 06:51:04,406 - INFO - Schemas do match
+2025-03-24 06:51:04,434 - INFO - Validation complete
+2025-03-24 06:51:04,434 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:51:04,434 - INFO - Schemas do match
+2025-03-24 06:51:04,463 - INFO - Validation complete
+2025-03-24 06:51:04,463 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:51:04,500 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:51:04,500 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:51:04,527 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:51:04,527 - INFO - Creating enriched dataset...
+2025-03-24 06:51:04,595 - INFO - Enriched dataset was created
+2025-03-24 06:51:22,777 - INFO - Loading csv file
+2025-03-24 06:51:25,479 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:51:25,479 - INFO - Loading csv file
+2025-03-24 06:51:25,688 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:51:25,688 - INFO - Loading csv file
+2025-03-24 06:51:25,911 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:51:25,911 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:51:25,911 - INFO - Schemas do match
+2025-03-24 06:51:25,911 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:51:26,039 - INFO - Validation complete
+2025-03-24 06:51:26,039 - INFO - Validating Products Dataframe ...
+2025-03-24 06:51:26,039 - INFO - Schemas do match
+2025-03-24 06:51:26,069 - INFO - Validation complete
+2025-03-24 06:51:26,069 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:51:26,069 - INFO - Schemas do match
+2025-03-24 06:51:26,097 - INFO - Validation complete
+2025-03-24 06:51:26,097 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:51:26,148 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:51:26,148 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:51:26,177 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:51:26,177 - INFO - Creating enriched dataset...
+2025-03-24 06:51:26,242 - INFO - Enriched dataset was created
+2025-03-24 06:51:26,852 - INFO - Closing down clientserver connection
+2025-03-24 06:54:52,887 - INFO - Loading csv file
+2025-03-24 06:54:55,608 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:54:55,608 - INFO - Loading csv file
+2025-03-24 06:54:55,819 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:54:55,819 - INFO - Loading csv file
+2025-03-24 06:54:56,035 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:54:56,035 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:54:56,035 - INFO - Schemas do match
+2025-03-24 06:54:56,035 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:54:56,168 - INFO - Validation complete
+2025-03-24 06:54:56,168 - INFO - Validating Products Dataframe ...
+2025-03-24 06:54:56,168 - INFO - Schemas do match
+2025-03-24 06:54:56,204 - INFO - Validation complete
+2025-03-24 06:54:56,204 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:54:56,204 - INFO - Schemas do match
+2025-03-24 06:54:56,233 - INFO - Validation complete
+2025-03-24 06:54:56,233 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:54:56,270 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:54:56,270 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:54:56,300 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:55:48,457 - INFO - Loading csv file
+2025-03-24 06:55:51,148 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:55:51,148 - INFO - Loading csv file
+2025-03-24 06:55:51,367 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:55:51,367 - INFO - Loading csv file
+2025-03-24 06:55:51,595 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:55:51,595 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:55:51,595 - INFO - Schemas do match
+2025-03-24 06:55:51,595 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:55:51,751 - INFO - Validation complete
+2025-03-24 06:55:51,751 - INFO - Validating Products Dataframe ...
+2025-03-24 06:55:51,752 - INFO - Schemas do match
+2025-03-24 06:55:51,789 - INFO - Validation complete
+2025-03-24 06:55:51,789 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:55:51,789 - INFO - Schemas do match
+2025-03-24 06:55:51,820 - INFO - Validation complete
+2025-03-24 06:55:51,820 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:55:51,859 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:55:51,859 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:55:51,882 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:57:59,073 - INFO - Loading csv file
+2025-03-24 06:58:01,753 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:58:01,753 - INFO - Loading csv file
+2025-03-24 06:58:01,956 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:58:01,956 - INFO - Loading csv file
+2025-03-24 06:58:02,206 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:58:02,206 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:58:02,206 - INFO - Schemas do match
+2025-03-24 06:58:02,206 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:58:02,356 - INFO - Validation complete
+2025-03-24 06:58:02,356 - INFO - Validating Products Dataframe ...
+2025-03-24 06:58:02,356 - INFO - Schemas do match
+2025-03-24 06:58:02,388 - INFO - Validation complete
+2025-03-24 06:58:02,388 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:58:02,388 - INFO - Schemas do match
+2025-03-24 06:58:02,423 - INFO - Validation complete
+2025-03-24 06:58:02,423 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:58:02,467 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:58:02,467 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:58:02,497 - INFO - Computing total quantity by category and month was successful
+2025-03-24 06:58:04,354 - INFO - Closing down clientserver connection
+2025-03-24 06:59:56,251 - INFO - Loading csv file
+2025-03-24 06:59:58,940 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 06:59:58,940 - INFO - Loading csv file
+2025-03-24 06:59:59,162 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 06:59:59,162 - INFO - Loading csv file
+2025-03-24 06:59:59,387 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 06:59:59,387 - INFO - Validating Sales Dataframe ...
+2025-03-24 06:59:59,387 - INFO - Schemas do match
+2025-03-24 06:59:59,387 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 06:59:59,533 - INFO - Validation complete
+2025-03-24 06:59:59,533 - INFO - Validating Products Dataframe ...
+2025-03-24 06:59:59,533 - INFO - Schemas do match
+2025-03-24 06:59:59,566 - INFO - Validation complete
+2025-03-24 06:59:59,566 - INFO - Validating Stores Dataframe ...
+2025-03-24 06:59:59,566 - INFO - Schemas do match
+2025-03-24 06:59:59,594 - INFO - Validation complete
+2025-03-24 06:59:59,594 - INFO - Computing total revenue by store and category ...
+2025-03-24 06:59:59,645 - INFO - Computing total revenue by store and category was successful
+2025-03-24 06:59:59,645 - INFO - Computing total quantity by category and month ...
+2025-03-24 06:59:59,675 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:02:28,887 - INFO - Loading csv file
+2025-03-24 07:02:31,674 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 07:02:31,674 - INFO - Loading csv file
+2025-03-24 07:02:31,892 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 07:02:31,892 - INFO - Loading csv file
+2025-03-24 07:02:32,125 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 07:02:32,125 - INFO - Validating Sales Dataframe ...
+2025-03-24 07:02:32,125 - INFO - Schemas do match
+2025-03-24 07:02:32,125 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 07:02:32,246 - INFO - Validation complete
+2025-03-24 07:02:32,246 - INFO - Validating Products Dataframe ...
+2025-03-24 07:02:32,246 - INFO - Schemas do match
+2025-03-24 07:02:32,282 - INFO - Validation complete
+2025-03-24 07:02:32,282 - INFO - Validating Stores Dataframe ...
+2025-03-24 07:02:32,282 - INFO - Schemas do match
+2025-03-24 07:02:32,311 - INFO - Validation complete
+2025-03-24 07:02:32,311 - INFO - Computing total revenue by store and category ...
+2025-03-24 07:02:32,346 - INFO - Computing total revenue by store and category was successful
+2025-03-24 07:02:32,346 - INFO - Computing total quantity by category and month ...
+2025-03-24 07:02:32,373 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:02:51,952 - INFO - Loading csv file
+2025-03-24 07:02:54,642 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 07:02:54,642 - INFO - Loading csv file
+2025-03-24 07:02:54,874 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 07:02:54,874 - INFO - Loading csv file
+2025-03-24 07:02:55,112 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 07:02:55,112 - INFO - Validating Sales Dataframe ...
+2025-03-24 07:02:55,112 - INFO - Schemas do match
+2025-03-24 07:02:55,112 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 07:02:55,250 - INFO - Validation complete
+2025-03-24 07:02:55,250 - INFO - Validating Products Dataframe ...
+2025-03-24 07:02:55,250 - INFO - Schemas do match
+2025-03-24 07:02:55,285 - INFO - Validation complete
+2025-03-24 07:02:55,285 - INFO - Validating Stores Dataframe ...
+2025-03-24 07:02:55,285 - INFO - Schemas do match
+2025-03-24 07:02:55,313 - INFO - Validation complete
+2025-03-24 07:02:55,313 - INFO - Computing total revenue by store and category ...
+2025-03-24 07:02:55,369 - INFO - Computing total revenue by store and category was successful
+2025-03-24 07:02:55,369 - INFO - Computing total quantity by category and month ...
+2025-03-24 07:02:55,395 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:03:07,861 - INFO - Loading csv file
+2025-03-24 07:03:10,516 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 07:03:10,516 - INFO - Loading csv file
+2025-03-24 07:03:10,726 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 07:03:10,727 - INFO - Loading csv file
+2025-03-24 07:03:10,957 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 07:03:10,957 - INFO - Validating Sales Dataframe ...
+2025-03-24 07:03:10,957 - INFO - Schemas do match
+2025-03-24 07:03:10,957 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 07:03:11,117 - INFO - Validation complete
+2025-03-24 07:03:11,117 - INFO - Validating Products Dataframe ...
+2025-03-24 07:03:11,117 - INFO - Schemas do match
+2025-03-24 07:03:11,148 - INFO - Validation complete
+2025-03-24 07:03:11,148 - INFO - Validating Stores Dataframe ...
+2025-03-24 07:03:11,148 - INFO - Schemas do match
+2025-03-24 07:03:11,173 - INFO - Validation complete
+2025-03-24 07:03:11,174 - INFO - Computing total revenue by store and category ...
+2025-03-24 07:03:11,210 - INFO - Computing total revenue by store and category was successful
+2025-03-24 07:03:11,210 - INFO - Computing total quantity by category and month ...
+2025-03-24 07:03:11,234 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:04:54,420 - INFO - Loading csv file
+2025-03-24 07:04:57,061 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 07:04:57,062 - INFO - Loading csv file
+2025-03-24 07:04:57,271 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 07:04:57,271 - INFO - Loading csv file
+2025-03-24 07:04:57,510 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 07:04:57,510 - INFO - Validating Sales Dataframe ...
+2025-03-24 07:04:57,510 - INFO - Schemas do match
+2025-03-24 07:04:57,510 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 07:04:57,662 - INFO - Validation complete
+2025-03-24 07:04:57,662 - INFO - Validating Products Dataframe ...
+2025-03-24 07:04:57,662 - INFO - Schemas do match
+2025-03-24 07:04:57,696 - INFO - Validation complete
+2025-03-24 07:04:57,696 - INFO - Validating Stores Dataframe ...
+2025-03-24 07:04:57,696 - INFO - Schemas do match
+2025-03-24 07:04:57,724 - INFO - Validation complete
+2025-03-24 07:04:57,724 - INFO - Computing total revenue by store and category ...
+2025-03-24 07:04:57,771 - INFO - Computing total revenue by store and category was successful
+2025-03-24 07:04:57,771 - INFO - Computing total quantity by category and month ...
+2025-03-24 07:04:57,798 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:06:39,088 - INFO - Loading csv file
+2025-03-24 07:06:41,742 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 07:06:41,742 - INFO - Loading csv file
+2025-03-24 07:06:41,955 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 07:06:41,955 - INFO - Loading csv file
+2025-03-24 07:06:42,195 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 07:06:42,196 - INFO - Validating Sales Dataframe ...
+2025-03-24 07:06:42,196 - INFO - Schemas do match
+2025-03-24 07:06:42,196 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 07:06:42,357 - INFO - Validation complete
+2025-03-24 07:06:42,357 - INFO - Validating Products Dataframe ...
+2025-03-24 07:06:42,357 - INFO - Schemas do match
+2025-03-24 07:06:42,392 - INFO - Validation complete
+2025-03-24 07:06:42,392 - INFO - Validating Stores Dataframe ...
+2025-03-24 07:06:42,392 - INFO - Schemas do match
+2025-03-24 07:06:42,428 - INFO - Validation complete
+2025-03-24 07:06:42,428 - INFO - Computing total revenue by store and category ...
+2025-03-24 07:06:42,480 - INFO - Computing total revenue by store and category was successful
+2025-03-24 07:06:42,480 - INFO - Computing total quantity by category and month ...
+2025-03-24 07:06:42,511 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:08:08,848 - INFO - Loading csv file
+2025-03-24 07:08:11,534 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 07:08:11,534 - INFO - Loading csv file
+2025-03-24 07:08:11,738 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 07:08:11,738 - INFO - Loading csv file
+2025-03-24 07:08:11,971 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 07:08:11,971 - INFO - Validating Sales Dataframe ...
+2025-03-24 07:08:11,971 - INFO - Schemas do match
+2025-03-24 07:08:11,971 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 07:08:12,125 - INFO - Validation complete
+2025-03-24 07:08:12,125 - INFO - Validating Products Dataframe ...
+2025-03-24 07:08:12,125 - INFO - Schemas do match
+2025-03-24 07:08:12,161 - INFO - Validation complete
+2025-03-24 07:08:12,161 - INFO - Validating Stores Dataframe ...
+2025-03-24 07:08:12,161 - INFO - Schemas do match
+2025-03-24 07:08:12,195 - INFO - Validation complete
+2025-03-24 07:08:12,195 - INFO - Computing total revenue by store and category ...
+2025-03-24 07:08:12,246 - INFO - Computing total revenue by store and category was successful
+2025-03-24 07:08:12,246 - INFO - Computing total quantity by category and month ...
+2025-03-24 07:08:12,275 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:08:12,275 - INFO - Creating enriched dataset...
+2025-03-24 07:08:12,349 - INFO - Enriched dataset was created
+2025-03-24 07:08:14,333 - INFO - Closing down clientserver connection
+2025-03-24 07:08:38,994 - INFO - Loading csv file
+2025-03-24 07:08:41,646 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 07:08:41,646 - INFO - Loading csv file
+2025-03-24 07:08:41,857 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 07:08:41,857 - INFO - Loading csv file
+2025-03-24 07:08:42,088 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 07:08:42,088 - INFO - Validating Sales Dataframe ...
+2025-03-24 07:08:42,088 - INFO - Schemas do match
+2025-03-24 07:08:42,089 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 07:08:42,228 - INFO - Validation complete
+2025-03-24 07:08:42,228 - INFO - Validating Products Dataframe ...
+2025-03-24 07:08:42,228 - INFO - Schemas do match
+2025-03-24 07:08:42,263 - INFO - Validation complete
+2025-03-24 07:08:42,263 - INFO - Validating Stores Dataframe ...
+2025-03-24 07:08:42,263 - INFO - Schemas do match
+2025-03-24 07:08:42,306 - INFO - Validation complete
+2025-03-24 07:08:42,306 - INFO - Computing total revenue by store and category ...
+2025-03-24 07:08:42,349 - INFO - Computing total revenue by store and category was successful
+2025-03-24 07:08:42,349 - INFO - Computing total quantity by category and month ...
+2025-03-24 07:08:42,378 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:08:42,378 - INFO - Creating enriched dataset...
+2025-03-24 07:08:42,415 - INFO - Enriched dataset was created
+2025-03-24 07:08:44,462 - INFO - Closing down clientserver connection
+2025-03-24 07:10:07,059 - INFO - Loading csv file
+2025-03-24 07:10:09,704 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 07:10:09,704 - INFO - Loading csv file
+2025-03-24 07:10:09,910 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 07:10:09,910 - INFO - Loading csv file
+2025-03-24 07:10:10,150 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 07:10:10,150 - INFO - Validating Sales Dataframe ...
+2025-03-24 07:10:10,150 - INFO - Schemas do match
+2025-03-24 07:10:10,150 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 07:10:10,331 - INFO - Validation complete
+2025-03-24 07:10:10,331 - INFO - Validating Products Dataframe ...
+2025-03-24 07:10:10,331 - INFO - Schemas do match
+2025-03-24 07:10:10,371 - INFO - Validation complete
+2025-03-24 07:10:10,371 - INFO - Validating Stores Dataframe ...
+2025-03-24 07:10:10,371 - INFO - Schemas do match
+2025-03-24 07:10:10,406 - INFO - Validation complete
+2025-03-24 07:10:10,406 - INFO - Computing total revenue by store and category ...
+2025-03-24 07:10:10,460 - INFO - Computing total revenue by store and category was successful
+2025-03-24 07:10:10,460 - INFO - Computing total quantity by category and month ...
+2025-03-24 07:10:10,487 - INFO - Computing total quantity by category and month was successful
+2025-03-24 07:10:10,487 - INFO - Creating enriched dataset...
+2025-03-24 07:10:10,569 - INFO - Enriched dataset was created
