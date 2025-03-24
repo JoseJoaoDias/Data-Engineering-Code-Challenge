@@ -27,7 +27,7 @@ jobs:
 
       - name: Install pyspark
         run: |
-          pip install pyspark
+          pip install -r requirements.txt
 
 
 
