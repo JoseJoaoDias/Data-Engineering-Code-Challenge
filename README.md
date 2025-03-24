@@ -53,7 +53,7 @@ Data Export
 ### Prerequisites
 Ensure you have installed the required libraries by running:
 
-pip install -r requirements.txt
+            pip install -r requirements.txt
 
 Running the Code
 Prepare the data: Ensure that the raw data files (sales_uuid.csv, products_uuid.csv, stores_uuid.csv) are available in the data directory.
