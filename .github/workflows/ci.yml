@@ -24,8 +24,7 @@ jobs:
       - name: Upgrade packaging tools and install package
         run: |
           python -m pip install --upgrade pip setuptools wheel
-          pip install your-package-name-here
-          
+                    
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
