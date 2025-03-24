@@ -1,0 +1,19 @@
+2025-03-24 05:29:41,577 - INFO - Loading sales.csv into a PySpark DataFrame
+2025-03-24 05:29:41,577 - INFO - Loading csv file
+2025-03-24 05:29:44,442 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:29:44,443 - INFO - sales.csv was loaded sucessfully into a PySpark DataFrame
+2025-03-24 05:29:44,443 - INFO - Loading products.csv into a PySpark DataFrame
+2025-03-24 05:29:44,443 - INFO - Loading csv file
+2025-03-24 05:29:44,665 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:29:44,665 - INFO - products.csv was loaded sucessfully into a PySpark DataFrame
+2025-03-24 05:29:44,665 - INFO - Loading stores.csv into a PySpark DataFrame
+2025-03-24 05:29:44,665 - INFO - Loading csv file
+2025-03-24 05:29:44,912 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:29:44,912 - INFO - stores.csv was loaded sucessfully into a PySpark DataFrame
+2025-03-24 05:31:05,688 - INFO - Loading csv file
+2025-03-24 05:31:08,359 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:31:08,479 - INFO - Loading csv file
+2025-03-24 05:31:08,682 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:31:08,755 - INFO - Loading csv file
+2025-03-24 05:31:08,964 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:31:09,563 - INFO - Closing down clientserver connection
