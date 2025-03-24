@@ -25,9 +25,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
 
+      - name: Install pypandoc
+        run: |
+            pip install pypandoc
+  
       - name: Install pyspark
         run: |
-          pip install -r requirements.txt
+          pip install pyspark
 
 
 
