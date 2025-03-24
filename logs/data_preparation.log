@@ -17,3 +17,104 @@
 2025-03-24 05:31:08,755 - INFO - Loading csv file
 2025-03-24 05:31:08,964 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
 2025-03-24 05:31:09,563 - INFO - Closing down clientserver connection
+2025-03-24 05:48:29,687 - INFO - Loading csv file
+2025-03-24 05:48:32,353 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:48:32,353 - INFO - Loading csv file
+2025-03-24 05:48:32,581 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:48:32,581 - INFO - Loading csv file
+2025-03-24 05:48:32,813 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:49:00,071 - INFO - Loading csv file
+2025-03-24 05:49:02,759 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:49:02,759 - INFO - Loading csv file
+2025-03-24 05:49:02,975 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:49:02,975 - INFO - Loading csv file
+2025-03-24 05:49:03,187 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:49:03,187 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:49:03,187 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 05:49:03,326 - INFO - Validation complete
+2025-03-24 05:49:04,104 - INFO - Closing down clientserver connection
+2025-03-24 05:50:59,561 - INFO - Loading csv file
+2025-03-24 05:51:02,215 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:51:02,216 - INFO - Loading csv file
+2025-03-24 05:51:02,427 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:51:02,427 - INFO - Loading csv file
+2025-03-24 05:51:02,662 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:51:02,662 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:51:02,662 - INFO - Validation complete
+2025-03-24 05:51:03,623 - INFO - Closing down clientserver connection
+2025-03-24 05:52:05,044 - INFO - Loading csv file
+2025-03-24 05:52:07,701 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:52:07,702 - INFO - Loading csv file
+2025-03-24 05:52:07,912 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:52:07,912 - INFO - Loading csv file
+2025-03-24 05:52:08,135 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:52:08,135 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:52:08,135 - ERROR - Schemas do match
+2025-03-24 05:52:08,135 - INFO - Validation complete
+2025-03-24 05:52:09,079 - INFO - Closing down clientserver connection
+2025-03-24 05:53:50,390 - INFO - Loading csv file
+2025-03-24 05:53:53,121 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:53:53,121 - INFO - Loading csv file
+2025-03-24 05:53:53,329 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:53:53,329 - INFO - Loading csv file
+2025-03-24 05:53:53,574 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:53:53,575 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:53:53,575 - INFO - Schemas do match
+2025-03-24 05:53:53,575 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 05:53:53,639 - INFO - Validation complete
+2025-03-24 05:53:54,463 - INFO - Closing down clientserver connection
+2025-03-24 05:54:49,346 - INFO - Loading csv file
+2025-03-24 05:54:52,050 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:54:52,050 - INFO - Loading csv file
+2025-03-24 05:54:52,255 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:54:52,255 - INFO - Loading csv file
+2025-03-24 05:54:52,485 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:54:52,485 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:54:52,485 - INFO - Schemas do match
+2025-03-24 05:54:52,485 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 05:54:52,620 - INFO - Validation complete
+2025-03-24 05:54:53,348 - INFO - Closing down clientserver connection
+2025-03-24 05:55:47,395 - INFO - Loading csv file
+2025-03-24 05:55:50,026 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:55:50,026 - INFO - Loading csv file
+2025-03-24 05:55:50,248 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:55:50,248 - INFO - Loading csv file
+2025-03-24 05:55:50,472 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:55:50,472 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:55:50,472 - INFO - Schemas do match
+2025-03-24 05:55:50,472 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 05:55:50,556 - INFO - Validation complete
+2025-03-24 05:55:51,456 - INFO - Closing down clientserver connection
+2025-03-24 05:56:29,188 - INFO - Loading csv file
+2025-03-24 05:56:31,878 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:56:31,878 - INFO - Loading csv file
+2025-03-24 05:56:32,078 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:56:32,078 - INFO - Loading csv file
+2025-03-24 05:56:32,295 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:56:32,295 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:56:32,295 - INFO - Schemas do match
+2025-03-24 05:56:32,295 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 05:56:32,397 - INFO - Validation complete
+2025-03-24 05:56:33,415 - INFO - Closing down clientserver connection
+2025-03-24 05:58:18,492 - INFO - Loading csv file
+2025-03-24 05:58:21,170 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:58:21,170 - INFO - Loading csv file
+2025-03-24 05:58:21,391 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:58:21,391 - INFO - Loading csv file
+2025-03-24 05:58:21,608 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:58:21,608 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:58:21,608 - INFO - Schemas do match
+2025-03-24 05:58:21,608 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 05:58:21,723 - INFO - Validation complete
+2025-03-24 05:58:22,956 - INFO - Closing down clientserver connection
+2025-03-24 05:58:44,662 - INFO - Loading csv file
+2025-03-24 05:58:47,352 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-24 05:58:47,352 - INFO - Loading csv file
+2025-03-24 05:58:47,564 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-24 05:58:47,564 - INFO - Loading csv file
+2025-03-24 05:58:47,792 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-24 05:58:47,792 - INFO - Validating Sales Dataframe ...
+2025-03-24 05:58:47,792 - INFO - Schemas do match
+2025-03-24 05:58:47,792 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-24 05:58:47,943 - INFO - Validation complete
+2025-03-24 05:58:49,682 - INFO - Closing down clientserver connection

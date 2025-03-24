@@ -7,7 +7,7 @@ from pyspark.sql import SparkSession
 import os
 import logging
 from conf import settings
-from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe
+from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,sales_Validation
 
 # import warnings
 # from conf import settings
@@ -45,3 +45,7 @@ spark = SparkSession.builder \
 df_sales=read_csv_into_pyspark_dataframe(file_path=settings.SALES_FILE)
 df_products=read_csv_into_pyspark_dataframe(file_path=settings.PRODUCTS_FILE)
 df_stores=read_csv_into_pyspark_dataframe(file_path=settings.STORES_FILE)
+
+# Task 2 - Data validation
+df_sales=sales_Validation(df=df_sales)
+df_sales.show()
