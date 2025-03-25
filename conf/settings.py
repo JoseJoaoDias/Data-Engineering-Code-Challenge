@@ -18,3 +18,6 @@ STORES_FILE = f"{DATA_PATH}/stores_uuid.csv"
 
 # Output Path
 OUTPUT_PATH = f"{BASE_PATH}/output/"
+
+# Test Path Temporary
+TEST_TEMP_PATH = f"{BASE_PATH}/temp_test/"

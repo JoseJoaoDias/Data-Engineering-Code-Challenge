@@ -4,14 +4,13 @@ Main sript uses the functions from another scrips to perform the tasks.
 """
 
 # Import libraries
-# from pyspark.sql import SparkSession
 import os
 import logging
 from conf import settings
 from challenge_tasks.data_preparation import (
     read_csv_into_pyspark_dataframe,
     validation,
-)  # , spark  as spark_preparation
+)
 from challenge_tasks.data_transformations import (
     sales_aggregation,
     month_insights,

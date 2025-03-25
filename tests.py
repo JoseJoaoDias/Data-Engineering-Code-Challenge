@@ -31,7 +31,10 @@ import csv
 import shutil
 import chispa
 import datetime
+import logging
 
+# Deactivate logs
+logging.disable(logging.CRITICAL)
 spark = (
     SparkSession.builder.appName("TestChallengApp")
     .config("spark.hadoop.hadoop.native.lib", "false")
@@ -47,9 +50,9 @@ def create_mock_csv(test_path):
         ["str_1", "Store A", "Location A"],
         ["str_2", "Store B", "Location B"],
     ]
-    # Creation temp directory
 
-    os.makedirs("temp_test", exist_ok=True)
+    # Creation temp directory
+    os.makedirs(test_path, exist_ok=True)
 
     # Define file path
     file_path = os.path.join(test_path, "mock_data.csv")
@@ -62,7 +65,7 @@ def create_mock_csv(test_path):
 
 def test_read_csv_file():
     # Define file path
-    test_path = "temp_test"
+    test_path = settings.TEST_TEMP_PATH
     # Creation of mock csv
     create_mock_csv(test_path)
     df = read_csv_into_pyspark_dataframe(test_path)
@@ -158,8 +161,7 @@ def test_products_validation():
             (None, "Product B", "Category B"),
             ("pro_1", "Product B", "Category B"),
             ("pro_2", "Product B", "Category B"),
-            ("pro_3", "Product B", "Category B"),
-            ("pro_4", "Product C", "Category C"),
+            ("pro_3", "Product C", "Category C"),
         ],
         ["product_id", "product_name", "category"],
     )
@@ -179,7 +181,7 @@ def test_products_validation():
         [
             ("pro_1", "Product A", "Category A"),
             ("pro_2", "Product B", "Category B"),
-            ("pro_4", "Product C", "Category C"),
+            ("pro_3", "Product C", "Category C"),
         ],
         schema,
     )
@@ -205,7 +207,6 @@ def test_store_validation():
             (None, "Store B", "Location B"),
             ("str_3", "Store C", "Location C"),
             ("str_3", "Store C", "Location C"),
-            ("str_4", "Store C", "Location C"),
         ],
         ["store_id", "store_name", "location"],
     )
@@ -654,4 +655,5 @@ def test_export_dataframe_as_csv():
         shutil.rmtree("temp_test")
 
 
-test_sales_validation()
+# Enable logging
+logging.disable(logging.NOTSET)

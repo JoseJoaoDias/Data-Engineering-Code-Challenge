@@ -28,22 +28,14 @@ log_dir = os.path.abspath("logs")
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)  # Creates directory if does not exists
 
-log_file = os.path.join(log_dir, "data_transformation.log")
-
-logging.basicConfig(
-    filename=log_file,
-    level=logging.INFO,  # logging level can be adjusted if necessary (DEBUG, INFO, ERROR, CRITICAL)
-    format="%(asctime)s - %(levelname)s - %(message)s",  # logging message format
+log_file_transformation = os.path.join(log_dir, "data_transformation.log")
+logger_transformation = logging.getLogger("data_transformation")
+handler_transformation = logging.FileHandler(log_file_transformation)
+handler_transformation.setFormatter(
+    logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 )
-
-logger = logging.getLogger(__name__)
-
-# # Create Spark Session
-# spark = SparkSession.builder \
-#     .appName("Data Transformation App") \
-#     .config("spark.hadoop.hadoop.native.lib", "false") \
-#     .master("local[*]") \
-#     .getOrCreate()
+logger_transformation.addHandler(handler_transformation)
+logger_transformation.setLevel(logging.INFO)
 
 
 def sales_aggregation(df_product: DataFrame, df_sales: DataFrame) -> DataFrame:
@@ -57,7 +49,7 @@ def sales_aggregation(df_product: DataFrame, df_sales: DataFrame) -> DataFrame:
     Return:
     df_result (DataFrame): Aggregated PySpark DataFrame with total revenue per store and category
     """
-    logger.info("Computing total revenue by store and category ...")
+    logger_transformation.info("Computing total revenue by store and category ...")
 
     # Total revenue computation
     df_result = (
@@ -68,7 +60,9 @@ def sales_aggregation(df_product: DataFrame, df_sales: DataFrame) -> DataFrame:
 
     # Filtering null values that may exist
     df_result = df_result.filter(F.col("category").isNotNull())
-    logger.info("Computing total revenue by store and category was successful")
+    logger_transformation.info(
+        "Computing total revenue by store and category was successful"
+    )
 
     return df_result
 
@@ -86,7 +80,7 @@ def month_insights(df_product: DataFrame, df_sales: DataFrame) -> DataFrame:
     Return:
     df_result (DataFrame): Aggregated PySpark DataFrame with total quantity per category and month
     """
-    logger.info("Computing total quantity by category and month ...")
+    logger_transformation.info("Computing total quantity by category and month ...")
 
     # Total quantity computation
     df_result = (
@@ -105,24 +99,11 @@ def month_insights(df_product: DataFrame, df_sales: DataFrame) -> DataFrame:
     # Filtering null values that may exist
     df_result = df_result.filter(F.col("category").isNotNull())
 
-    logger.info("Computing total quantity by category and month was successful")
+    logger_transformation.info(
+        "Computing total quantity by category and month was successful"
+    )
 
     return df_result
-
-
-@F.udf(StringType())  # Register the UDF with return type as String
-def price_range(price):
-    """
-    Classifies the price into different ranges.
-
-    Args:
-        price (float): The price value to classify.
-
-    Returns:
-        str: The price range classification - 'Low', 'Medium', or 'High'.
-    """
-    # if condition for price
-    logger.info("Calculating price range...")
 
 
 def price_range(price: float) -> str:
@@ -161,7 +142,7 @@ def enriched_data(
     Return:
     df_result (DataFrame): Aggregated PySpark DataFrame with total quantity per category and month
     """
-    logger.info("Creating enriched dataset...")
+    logger_transformation.info("Creating enriched dataset...")
     # Creation of enriched dataset
     df_enriched = (
         df_sales.join(df_product, on="product_id", how="left")
@@ -192,6 +173,6 @@ def enriched_data(
         .filter(F.col("product_name").isNotNull())
         .filter(F.col("category").isNotNull())
     )
-    logger.info("Enriched dataset was created")
+    logger_transformation.info("Enriched dataset was created")
 
     return df_result

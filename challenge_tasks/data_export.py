@@ -21,22 +21,15 @@ log_dir = os.path.abspath("logs")
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)  # Creates directory if does not exists
 
-log_file = os.path.join(log_dir, "data_export.log")
 
-logging.basicConfig(
-    filename=log_file,
-    level=logging.INFO,  # logging level can be adjusted if necessary (DEBUG, INFO, ERROR, CRITICAL)
-    format="%(asctime)s - %(levelname)s - %(message)s",  # logging message format
+log_file_export = os.path.join(log_dir, "data_export.log")
+logger_export = logging.getLogger("data_export")
+handler_export = logging.FileHandler(log_file_export)
+handler_export.setFormatter(
+    logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 )
-
-logger = logging.getLogger(__name__)
-
-# # Create Spark Session
-# spark = SparkSession.builder \
-#     .appName("Data EXport App") \
-#     .config("spark.hadoop.hadoop.native.lib", "false") \
-#     .master("local[*]") \
-#     .getOrCreate()
+logger_export.addHandler(handler_export)
+logger_export.setLevel(logging.INFO)
 
 
 def export_dataframe_as_csv(df: DataFrame, df_name: str, output_path: str):
@@ -50,7 +43,7 @@ def export_dataframe_as_csv(df: DataFrame, df_name: str, output_path: str):
     Returns:
         None
     """
-    logger.info("Saving Csv file ...")
+    logger_export.info("Saving Csv file ...")
 
     # Creation of output path
     output_path_final = os.path.join(output_path, f"{df_name}.csv")
@@ -69,7 +62,7 @@ def export_dataframe_as_csv(df: DataFrame, df_name: str, output_path: str):
 
     # Delete the temporary folder
     shutil.rmtree(temp_folder)
-    logger.info("CSv file was saved.")
+    logger_export.info("CSv file was saved.")
 
 
 def export_dataframe_as_parquet_by_partitions(
@@ -83,6 +76,6 @@ def export_dataframe_as_parquet_by_partitions(
     """
     # Creation of output path
     output_path = os.path.join(output_path, f"{df_name}.parquet")
-    logger.info("Saving parquet file ...")
+    logger_export.info("Saving parquet file ...")
     df.write.mode("overwrite").partitionBy(partions).parquet(output_path)
-    logger.info("Parquet file was saved.")
+    logger_export.info("Parquet file was saved.")

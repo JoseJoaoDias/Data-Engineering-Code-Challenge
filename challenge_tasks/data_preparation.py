@@ -33,15 +33,14 @@ log_dir = os.path.abspath("logs")
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)  # Creates directory if does not exists
 
-log_file = os.path.join(log_dir, "data_preparation.log")
-
-logging.basicConfig(
-    filename=log_file,
-    level=logging.INFO,  # logging level can be adjusted if necessary (DEBUG, INFO, ERROR, CRITICAL)
-    format="%(asctime)s - %(levelname)s - %(message)s",  # logging message format
+log_file_preparation = os.path.join(log_dir, "data_preparation.log")
+logger_preparation = logging.getLogger("data_preparation")
+handler_preparation = logging.FileHandler(log_file_preparation)
+handler_preparation.setFormatter(
+    logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 )
-
-logger = logging.getLogger(__name__)
+logger_preparation.addHandler(handler_preparation)
+logger_preparation.setLevel(logging.INFO)
 
 
 def read_csv_into_pyspark_dataframe(file_path: str) -> DataFrame:
@@ -54,9 +53,9 @@ def read_csv_into_pyspark_dataframe(file_path: str) -> DataFrame:
     Return:
     df (Dataframe) : Pyspark Dataframe with information from csv file.
     """
-    logging.info("Loading csv file")
+    logger_preparation.info("Loading csv file")
     df = spark.read.csv(file_path, header=True, inferSchema=True)
-    logging.info(
+    logger_preparation.info(
         f"Dataset was loaded sucessfully from {file_path}. The dataset has Rows: {df.count()}, Columns: {len(df.columns)}"
     )
 
@@ -66,20 +65,20 @@ def read_csv_into_pyspark_dataframe(file_path: str) -> DataFrame:
 def validation(df: DataFrame, df_name: str) -> DataFrame:
     """
     Validates the data types against the sales columns in the dataframe
-    Enforces the expected data types tothe sales dataframe
-    Validates the schema of sales dataframe
+    Enforces the expected data types to the dataframe
+    Validates the schema of dataframe
     Check and remove null values on the dataframe
-
-    Removes duplicates present in transaction_id column
-    Check if the quantity and prices values are positive
+    Removes duplicates present in transaction_id column for sales dataframe
+    Removes duplicates present in product_id and store_id column for products and stores dataframes, respectively
+     Check if the quantity and prices values are positive
 
     Args:
-    df (DataFrame) : sales dataframe
+    df (DataFrame) : sales/products/stores dataframe
 
     Return:
-    df (Dataframe) : Pyspark Dataframe with sales data validated
+    df (Dataframe) : Pyspark Dataframe with dataframed validated
     """
-    logger.info("Validating Sales Dataframe ...")
+    logger_preparation.info("Validating Sales Dataframe ...")
 
     # Expected schema for Sales Dataframe
     expected_schema_sales = StructType(
@@ -92,7 +91,7 @@ def validation(df: DataFrame, df_name: str) -> DataFrame:
             StructField("price", DoubleType(), True),
         ]
     )
-
+    # Expected schema for Products Dataframe
     expected_schema_product = StructType(
         [
             StructField("product_id", StringType(), True),
@@ -101,6 +100,7 @@ def validation(df: DataFrame, df_name: str) -> DataFrame:
         ]
     )
 
+    # Expected schema for Stores Dataframe
     expected_schema_store = StructType(
         [
             StructField("store_id", StringType(), True),
@@ -108,7 +108,7 @@ def validation(df: DataFrame, df_name: str) -> DataFrame:
             StructField("location", StringType(), True),
         ]
     )
-
+    # Define schema to be used
     if df_name == "sales":
         expected_schema = expected_schema_sales
     elif df_name == "products":
@@ -180,15 +180,8 @@ def validation(df: DataFrame, df_name: str) -> DataFrame:
     # Guarantee in sales that the price and quantity are bigger than 0
     if df_name == "sales":
         df = df.filter((col("quantity") >= 0) & (col("price") >= 0))
-    else:
-        non_id_cols = [
-            c for c in df.columns if "id" not in c.lower()
-        ]  # non id columns for stores and products
-        df = df.drop_duplicates(
-            non_id_cols
-        )  # drop of duplicates combination of products and store dataframe
 
     # Drop duplicates in  column transaction_id if any
-    logging.info("Validation complete")
+    logger_preparation.info("Validation complete")
 
     return df
