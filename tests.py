@@ -653,7 +653,7 @@ def test_export_dataframe_as_csv():
     export_dataframe_as_csv(df=df, df_name="test_csv_output", output_path=output_path)
 
     # Read back the CSV file into a DataFrame
-    df_read_back = spark.read.option("header", "true").csv(os.path.join(output_path,'test_csv_output'))
+    df_read_back = spark.read.option("header", "true").csv(os.path.join(output_path,'test_csv_output.csv'))
 
     # Compare the DataFrame that was written and the DataFrame read back
     chispa.assert_df_equality(
@@ -670,4 +670,5 @@ def test_export_dataframe_as_csv():
 
 
 # Enable logging
+test_export_dataframe_as_csv()
 logging.disable(logging.NOTSET)

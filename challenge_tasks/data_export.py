@@ -49,6 +49,9 @@ def export_dataframe_as_csv(df: DataFrame, df_name: str, output_path: str):
     output_path_final = os.path.join(output_path, f"{df_name}.csv")
 
     temp_folder = output_path_final.replace(".csv", "_temp")
+    print(output_path_final)
+    print(temp_folder)
+
     # Write as a single CSV file
     df.coalesce(1).write.mode("overwrite").option("header", "true").csv(temp_folder)
 
