@@ -58,13 +58,13 @@ def export_dataframe_as_csv(df: DataFrame,df_name:str, output_path:str):
     df.coalesce(1).write.mode("overwrite").option("header", "true").csv(temp_folder)
 
     # Find the generated part file
-    csv_file = glob.glob("final_output/part-0000*")[0]  # Pick the correct file
+    csv_file = glob.glob(os.path.join(temp_folder, "part-0000*.csv"))[0]  # Pick the correct file
 
     # Rename the part file to final_output.csv
-    shutil.move(csv_file, "final_output.csv")
+    shutil.move(csv_file, f"{df_name}_final_output.csv")
 
     # Delete the temporary folder
-    shutil.rmtree("final_output")
+    shutil.rmtree(temp_folder)
     logger.info('CSv file was saved.')
 
 
