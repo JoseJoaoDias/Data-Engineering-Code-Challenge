@@ -33,7 +33,7 @@ def create_mock_csv(path_test:str):
     os.makedirs("temp_test", exist_ok=True)
 
     # Define file path
-    file_path = os.path.join("temp", "mock_data.csv")
+    file_path = os.path.join("temp_test", "mock_data.csv")
 
     # Write to CSV file
     with open(file_path, mode="w", newline="") as file:
@@ -159,7 +159,7 @@ def test_export_dataframe_as_parquet_by_partitions():
     ], ["transaction_id", "product_name", "category", "store_name", "location", "quantity", "transaction_date", "price"])
 
     # Path where the Parquet file will be saved
-    output_path = 'tmp/test_parquet_output.parquet'
+    output_path = 'temp_test/test_parquet_output.parquet'
     
     # Export the DataFrame to a Parquet file
     export_dataframe_as_parquet_by_partitions(df, output_path, partitions_list=["product_name","category"])
@@ -171,8 +171,8 @@ def test_export_dataframe_as_parquet_by_partitions():
     chispa.assert_df_equality(df, df_read_back, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True),
 
     # Clean up temporary files
-    if os.path.exists('tmp'):
-        shutil.rmtree('tmp')
+    if os.path.exists('temp_test'):
+        shutil.rmtree('temp_test')
         print("Cleaned up test files.")
 
 def test_export_dataframe_as_csv():
@@ -183,7 +183,7 @@ def test_export_dataframe_as_csv():
     ], ["transaction_id", "product_name", "category", "store_name", "location", "quantity", "transaction_date", "price"])
 
     # Path where the CSV file will be saved
-    output_path = 'tmp/test_csv_output.csv'
+    output_path = 'temp_test/test_csv_output.csv'
 
     # Export the DataFrame to a CSV file
     export_dataframe_as_csv(df, output_path)
@@ -195,8 +195,8 @@ def test_export_dataframe_as_csv():
     chispa.assert_df_equality(df, df_read_back, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True)
 
     # Manually perform cleanup after running tests
-    if os.path.exists('tmp_test'):
-        shutil.rmtree('tmp_test')
+    if os.path.exists('temp_test'):
+        shutil.rmtree('temp_test')
         print("Cleaned up test files.")
 
 

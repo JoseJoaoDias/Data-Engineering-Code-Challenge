@@ -57,8 +57,6 @@ enriched_dataframe = enriched_data(df_sales=df_sales, df_product=df_products, df
 # Task 4 - Enrich Data with price range 
 enriched_dataframe_category_price = enriched_data(df_sales=df_sales, df_product=df_products, df_stores=df_stores, add_price_category=True)
 
-enriched_dataframe.show(5)
-enriched_dataframe_category_price.show(5)
 # ## Part 3 -Tasks
 # Task 1 - Save Enrich Data into a parquet format partitioned by category and transaction_date
 export_dataframe_as_parquet_by_partitions(
