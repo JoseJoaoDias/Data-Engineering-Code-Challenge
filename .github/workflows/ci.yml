@@ -1,4 +1,4 @@
-name: Simple Build
+name: CI Build
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
@@ -31,8 +31,29 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest tests.py
+      - name: Run black (code formatting)
+        run: |
+          black --check .  
+        continue-on-error: true  # Allow this step to fail without stopping the workflow
+
+      - name: Run flake8 (linting)
+        run: |
+          flake8 .  
+        continue-on-error: true  # Allow this step to fail without stopping the workflow
 
       - name: Run main
         run: |
           python main.py 
+
+      - name: Upload CSV files
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-csv-files
+          path: ./output/*.csv
+
+      - name: Upload Parquet files
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-parquet-files
+          path: ./output/*.parquet
 

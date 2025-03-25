@@ -619,7 +619,7 @@ def test_export_dataframe_as_csv():
                 "Product A",
                 "Category A",
                 5,
-                datetime.date(2024,11,1),
+                "2025-03-01",
                 10.0
             ),
             (
@@ -629,7 +629,7 @@ def test_export_dataframe_as_csv():
                 "Product B",
                 "Category B",
                 10,
-                datetime.date(2024,11,2),
+                "2025-03-02",
                 40.0           
             ),
             (
@@ -639,7 +639,7 @@ def test_export_dataframe_as_csv():
                 "Product C",
                 "Category C",
                 30,
-                datetime.date(2024,12,1),
+                "2025-03-04",
                 160.0             
             ),
         ],
