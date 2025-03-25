@@ -60,7 +60,7 @@ def export_dataframe_as_csv(df: DataFrame, df_name: str, output_path: str):
     ]  # Pick the correct file
 
     # Rename the part file to final_output.csv
-    shutil.move(csv_file, f"{df_name}_final_output.csv")
+    shutil.move(csv_file, output_path_final)
 
     # Delete the temporary folder
     shutil.rmtree(temp_folder)
