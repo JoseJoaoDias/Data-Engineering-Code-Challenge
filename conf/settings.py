@@ -2,14 +2,15 @@
 Script for configurations aboout the app, mainly paths for the different folders.
 
 """
+
 # Import important libraries
 import os
 
 # Base path to acess files
-BASE_PATH=os.getcwd()
+BASE_PATH = os.getcwd()
 
 # Path to acess data folder
-DATA_PATH = os.path.join(BASE_PATH,'data')
+DATA_PATH = os.path.join(BASE_PATH, "data")
 
 PRODUCTS_FILE = f"{DATA_PATH}/products_uuid.csv"
 SALES_FILE = f"{DATA_PATH}/sales_uuid.csv"
