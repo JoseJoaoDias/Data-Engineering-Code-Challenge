@@ -605,7 +605,7 @@ def test_export_dataframe_as_csv():
             StructField("product_name", StringType(), True),
             StructField("category", StringType(), True),
             StructField("quantity", LongType(), True),
-            StructField("transaction_date", StringType(), True),
+            StructField("transaction_date", DateType(), True),
             StructField("price", DoubleType(), True),
         ]
     )
@@ -619,7 +619,7 @@ def test_export_dataframe_as_csv():
                 "Product A",
                 "Category A",
                 5,
-                "2024-11-01",
+                datetime.date(2024,11,01),
                 10.0
             ),
             (
@@ -629,7 +629,7 @@ def test_export_dataframe_as_csv():
                 "Product B",
                 "Category B",
                 10,
-                "2024-11-02",
+                datetime.date(2024-11-02),
                 40.0           
             ),
             (
@@ -639,7 +639,7 @@ def test_export_dataframe_as_csv():
                 "Product C",
                 "Category C",
                 30,
-                "2024-12-01",
+                datetime.date(2024-12-01),
                 160.0             
             ),
         ],
@@ -653,7 +653,7 @@ def test_export_dataframe_as_csv():
     export_dataframe_as_csv(df=df, df_name="test_csv_output", output_path=output_path)
 
     # Read back the CSV file into a DataFrame
-    df_read_back = spark.read.option("header", "true").csv(output_path)
+    df_read_back = spark.read.option("header", "true").csv(os.join(output_path,'test_csv_output'))
 
     # Compare the DataFrame that was written and the DataFrame read back
     chispa.assert_df_equality(
