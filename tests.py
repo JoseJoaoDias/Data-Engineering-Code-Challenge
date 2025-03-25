@@ -30,7 +30,7 @@ def create_mock_csv(path_test:str):
     ]
     # Creation temp directory
 
-    os.makedirs("temp", exist_ok=True)
+    os.makedirs("temp_test", exist_ok=True)
 
     # Define file path
     file_path = os.path.join("temp", "mock_data.csv")
@@ -42,7 +42,7 @@ def create_mock_csv(path_test:str):
         
 def test_read_csv_file():
     # Define file path
-    test_path="test_path"
+    test_path="temp_test"
     # Creation of mock csv
     create_mock_csv(test_path)
     df=read_csv_into_pyspark_dataframe(test_path)
@@ -195,8 +195,8 @@ def test_export_dataframe_as_csv():
     chispa.assert_df_equality(df, df_read_back, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True)
 
     # Manually perform cleanup after running tests
-    if os.path.exists('tmp'):
-        shutil.rmtree('tmp')
+    if os.path.exists('tmp_test'):
+        shutil.rmtree('tmp_test')
         print("Cleaned up test files.")
 
 
