@@ -591,8 +591,8 @@ def test_export_dataframe_as_parquet_by_partitions():
     ),
 
     # Clean up temporary files
-    if os.path.exists("temp_test"):
-        shutil.rmtree("temp_test")
+    if os.path.exists(settings.TEST_TEMP_PATH):
+        shutil.rmtree(settings.TEST_TEMP_PATH)
 
 
 def test_export_dataframe_as_csv():
@@ -633,7 +633,7 @@ def test_export_dataframe_as_csv():
     )
 
     # Path where the CSV file will be saved
-    output_path = "temp_test/test_csv_output.csv"
+    output_path = settings.TEST_TEMP_PATH
 
     # Export the DataFrame to a CSV file
     export_dataframe_as_csv(df=df, df_name="test_csv_output", output_path=output_path)
@@ -651,8 +651,8 @@ def test_export_dataframe_as_csv():
     )
 
     # Manually perform cleanup after running tests
-    if os.path.exists("temp_test"):
-        shutil.rmtree("temp_test")
+    if os.path.exists(settings.TEST_TEMP_PATH):
+        shutil.rmtree(settings.TEST_TEMP_PATH)
 
 
 # Enable logging

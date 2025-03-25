@@ -6,6 +6,7 @@ Main sript uses the functions from another scrips to perform the tasks.
 # Import libraries
 import os
 import logging
+from challenge_tasks.data_preparation import spark
 from conf import settings
 from challenge_tasks.data_preparation import (
     read_csv_into_pyspark_dataframe,
@@ -85,5 +86,15 @@ export_dataframe_as_parquet_by_partitions(
 
 # # Task 2 - Save revenue insights in CSV format
 export_dataframe_as_csv(
-    df=sales_agg, df_name="sales_agg", output_path=settings.OUTPUT_PATH
+    df=sales_agg, df_name="revenue_insights", output_path=settings.OUTPUT_PATH
 )
+
+## Optional  export enriched dataframe with price range into output/optional
+export_dataframe_as_parquet_by_partitions(
+    df=enriched_dataframe_category_price,
+    df_name="enriched_dataframe_category_price",
+    output_path=settings.OUTPUT_PATH_OPTIONAL,
+    partions=["category", "transaction_date"],
+)
+# End Spark Session
+spark.stop()
