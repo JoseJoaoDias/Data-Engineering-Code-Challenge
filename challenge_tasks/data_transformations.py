@@ -88,7 +88,8 @@ def month_insights(df_product : DataFrame, df_sales: DataFrame) -> DataFrame:
     df_result=df_sales.join(df_product, on="product_id", how="left") \
     .groupBy(F.year('transaction_date').alias('year'), F.month('transaction_date').alias('month'), df_product.category) \
     .agg(F.sum('quantity').alias('total_quantity_sold'))
-    
+    # Ensures used datatype for spark
+    df_result = df_result.withColumn("total_quantity_sold", F.col("total_quantity_sold").cast("long"))
     # Filtering null values that may exist
     df_result = df_result.filter(F.col("category").isNotNull())
 

@@ -6,6 +6,7 @@ and functions for data validation, transformation, and export.
 
 from pyspark.sql import SparkSession
 from conf import settings
+from pyspark.sql.types import IntegerType, LongType, StructType, StructField, StringType, DoubleType
 from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,sales_validation,products_validation,stores_validation
 from challenge_tasks.data_transformations import sales_aggregation,month_insights,enriched_data
 from challenge_tasks.data_export import export_dataframe_as_csv,export_dataframe_as_parquet_by_partitions
@@ -90,9 +91,9 @@ def test_month_insights():
     # Create sample sales data
     df_sales = spark.createDataFrame([
         ("tra_1", "str_1", "pro_1", 5, "2024-11-01", 20.0),
-        ("tra_2", "str_2", "pro_2", 10, "2024-11-02", 40.0),
-        ("tra_3", "str_3", "pro_3", 15, "2024-12-03", 60.0),
-        ("tra_4", "str_4", "pro_4", 20, "2024-12-04", 80.0)
+        ("tra_2", "str_2", "pro_1", 10, "2024-11-02", 40.0),
+        ("tra_3", "str_3", "pro_2", 15, "2024-12-03", 60.0),
+        ("tra_4", "str_4", "pro_2", 20, "2024-12-04", 80.0)
     ], ["transaction_id", "store_id", "product_id", "quantity", "transaction_date", "price"])
     
     # Create sample product data
@@ -104,11 +105,17 @@ def test_month_insights():
     # Total quantity using method
     df_month_insigths = month_insights(df_sales=df_sales,df_product=df_products)
 
-    # Expected Total quantity
+    schema = StructType([
+        StructField("year", IntegerType(), True),
+        StructField("month", IntegerType(), True),
+        StructField("category", StringType(), True),
+        StructField("total_quantity_sold", LongType(), True)  # Change to LongType
+    ])
+
     expected_df_month_insigths = spark.createDataFrame([
-        ("2024", "12", "Category A", 20.0),
-        ("2024", "11", "Category B", 40.0)
-    ], ["year", "month", "category", "total_quantity_sold"])
+        (2024, 11, "Category A", 15),
+        (2024, 12, "Category B", 35)
+    ], schema)
 
     # Check that the output of month insights is correct
     chispa.assert_df_equality(df_month_insigths, expected_df_month_insigths, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True)
@@ -138,31 +145,89 @@ def test_enriched_data():
 
 
     # Enrich data without price category using method
-    df_enriched = enriched_data(df_products, df_stores, df_sales, add_price_category=False)
+    df_enriched = enriched_data(df_product=df_products, df_sales=df_sales,df_stores=df_stores, add_price_category=False)
 
-    # Expected enriched result without price category
+    schema = StructType([
+            StructField("transaction_id", StringType(), True),
+            StructField("store_name", StringType(), True),
+            StructField("location", StringType(), True),
+            StructField("product_name", StringType(), True),
+            StructField("category", StringType(), True),
+            StructField("quantity", LongType(), True),
+            StructField("transaction_date", StringType(), True),
+            StructField("price", DoubleType(), True)
+
+        ])
+
     expected_df_enriched = spark.createDataFrame([
-        ("t1", "Product A", "Category X", "Store A", "Location X", 5, "2024-12-01", 20.0),
-        ("t2", "Product B", "Category Y", "Store B", "Location Y", 10, "2024-12-02", 40.0)
-    ], ["transaction_id", "product_name", "category", "store_name", "location", "quantity", "transaction_date", "price"])
+        ("tra_1", "Store A", "Location A","Product A", "Category A",5, "2024-11-01", 20.0),
+        ("tra_2", "Store B", "Location B","Product B", "Category B",  10, "2024-11-02", 40.0)
+        ], schema)
+
+
+    # Check that the output of enriched data without price category is correct
+    chispa.assert_df_equality(df_enriched, expected_df_enriched, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True)
+
+def test_enriched_data_price_range():
+    # Create sample sales data
+    df_sales = spark.createDataFrame([
+        ("tra_1", "str_1", "pro_1", 5, "2024-11-01", 10.0),
+        ("tra_2", "str_2", "pro_2", 10, "2024-11-02", 40.0),
+        ("tra_3", "str_3", "pro_3", 30, "2024-12-01", 160.0),
+        ("tra_4", "str_4", "pro_4", 60, "2024-12-02", 640.0)
+    ], ["transaction_id", "store_id", "product_id", "quantity", "transaction_date", "price"])
+    # Create sample product data
+    df_products = spark.createDataFrame([
+        ("pro_1", "Product A", "Category A"),
+        ("pro_2", "Product B", "Category B"),
+        ("pro_3", "Product C", "Category C")
+    ], ["product_id", "product_name", "category"])
+
+    # Create sample stores data
+    df_stores = spark.createDataFrame([
+        ("str_1", "Store A", "Location A"),
+        ("str_2", "Store B", "Location B"),
+        ("str_3", "Store C", "Location C")
+    ], ["store_id", "store_name", "location"])
+
+
+
+    # Enrich data without price category using method
+    df_enriched = enriched_data(df_product=df_products, df_sales=df_sales,df_stores=df_stores, add_price_category=True)
+    schema = StructType([
+            StructField("transaction_id", StringType(), True),
+            StructField("store_name", StringType(), True),
+            StructField("location", StringType(), True),
+            StructField("product_name", StringType(), True),
+            StructField("category", StringType(), True),
+            StructField("quantity", LongType(), True),
+            StructField("transaction_date", StringType(), True),
+            StructField("price", DoubleType(), True),
+            StructField("price_category",StringType() , True)
+        ])
+
+    expected_df_enriched = spark.createDataFrame([
+        ("tra_1", "Store A", "Location A","Product A", "Category A",5, "2024-11-01", 10.0,'Low'),
+        ("tra_2", "Store B", "Location B","Product B", "Category B",  10, "2024-11-02", 40.0,'Medium'),
+        ("tra_3", "Store C", "Location C","Product C", "Category C",  30, "2024-12-01", 160.0,'High')
+        ], schema)
 
     # Check that the output of enriched data without price category is correct
     chispa.assert_df_equality(df_enriched, expected_df_enriched, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True)
 
 
-
 def test_export_dataframe_as_parquet_by_partitions():
      # Create a DataFrame to be written
     df = spark.createDataFrame([
-        ("t1", "Product A", "Category X", "Store A", "Location X", 5, "2024-12-01", 20.0),
-        ("t2", "Product B", "Category Y", "Store B", "Location Y", 10, "2024-12-02", 40.0)
-    ], ["transaction_id", "product_name", "category", "store_name", "location", "quantity", "transaction_date", "price"])
+        ("t1", "Store A", "Location A", "Product A", "Category A",5, "2024-12-01", 20.0),
+        ("t2", "Store B", "Location B", "Product B", "Category B", 10, "2024-12-02", 40.0)
+    ], ["transaction_id","store_name", "location", "product_name", "category", "quantity", "transaction_date", "price"])
 
     # Path where the Parquet file will be saved
     output_path = 'temp_test/test_parquet_output.parquet'
     
     # Export the DataFrame to a Parquet file
-    export_dataframe_as_parquet_by_partitions(df, output_path, partitions_list=["product_name","category"])
+    export_dataframe_as_parquet_by_partitions(df=df,df_name='test_csv_output', output_path=output_path, partions=["product_name","category"])
 
     # Read back the Parquet file into a DataFrame
     df_read_back = spark.read.parquet(output_path)
@@ -178,15 +243,15 @@ def test_export_dataframe_as_parquet_by_partitions():
 def test_export_dataframe_as_csv():
     # Create a DataFrame to be written
     df = spark.createDataFrame([
-        ("t1", "Product A", "Category X", "Store A", "Location X", 5, "2024-12-01", 20.0),
-        ("t2", "Product B", "Category Y", "Store B", "Location Y", 10, "2024-12-02", 40.0)
+        ("t1", "Product A", "Category A", "Store A", "Location A", 5, "2024-12-01", 20.0),
+        ("t2", "Product B", "Category B", "Store B", "Location B", 10, "2024-12-02", 40.0)
     ], ["transaction_id", "product_name", "category", "store_name", "location", "quantity", "transaction_date", "price"])
 
     # Path where the CSV file will be saved
     output_path = 'temp_test/test_csv_output.csv'
 
     # Export the DataFrame to a CSV file
-    export_dataframe_as_csv(df, output_path)
+    export_dataframe_as_csv(df=df,df_name='test_csv_output',output_path=output_path)
 
     # Read back the CSV file into a DataFrame
     df_read_back = spark.read.option("header", "true").csv(output_path)
@@ -200,3 +265,4 @@ def test_export_dataframe_as_csv():
         print("Cleaned up test files.")
 
 
+test_enriched_data_price_range()

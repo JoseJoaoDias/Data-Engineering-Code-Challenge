@@ -53,6 +53,7 @@ sales_agg=sales_aggregation(df_sales=df_sales,df_product=df_products,)
 # Task 2 - Monthly Sales Insights - Calculate the total quantity sold for each product category, grouped by month.
 monthly_sales_insights= month_insights(df_sales=df_sales,df_product=df_products)
 # Task 3 - Enrich Data - Combine the sales, products, and stores datasets into a single enriched dataset
+
 enriched_dataframe = enriched_data(df_sales=df_sales, df_product=df_products, df_stores=df_stores, add_price_category=False)
 # Task 4 - Enrich Data with price range 
 enriched_dataframe_category_price = enriched_data(df_sales=df_sales, df_product=df_products, df_stores=df_stores, add_price_category=True)
