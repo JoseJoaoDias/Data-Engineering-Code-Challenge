@@ -605,7 +605,7 @@ def test_export_dataframe_as_csv():
             StructField("product_name", StringType(), True),
             StructField("category", StringType(), True),
             StructField("quantity", LongType(), True),
-            StructField("transaction_date", DateType(), True),
+            StructField("transaction_date", StringType(), True),
             StructField("price", DoubleType(), True),
         ]
     )
