@@ -597,39 +597,53 @@ def test_export_dataframe_as_parquet_by_partitions():
 
 def test_export_dataframe_as_csv():
     # Create a DataFrame to be written
+    schema = StructType(
+        [
+            StructField("transaction_id", StringType(), True),
+            StructField("store_name", StringType(), True),
+            StructField("location", StringType(), True),
+            StructField("product_name", StringType(), True),
+            StructField("category", StringType(), True),
+            StructField("quantity", LongType(), True),
+            StructField("transaction_date", StringType(), True),
+            StructField("price", DoubleType(), True),
+        ]
+    )
+
     df = spark.createDataFrame(
         [
             (
-                "t1",
-                "Product A",
-                "Category A",
+                "tra_1",
                 "Store A",
                 "Location A",
+                "Product A",
+                "Category A",
                 5,
-                "2024-12-01",
-                20.0,
+                "2024-11-01",
+                10.0
             ),
             (
-                "t2",
-                "Product B",
-                "Category B",
+                "tra_2",
                 "Store B",
                 "Location B",
+                "Product B",
+                "Category B",
                 10,
-                "2024-12-02",
-                40.0,
+                "2024-11-02",
+                40.0           
+            ),
+            (
+                "tra_3",
+                "Store C",
+                "Location C",
+                "Product C",
+                "Category C",
+                30,
+                "2024-12-01",
+                160.0             
             ),
         ],
-        [
-            "transaction_id",
-            "product_name",
-            "category",
-            "store_name",
-            "location",
-            "quantity",
-            "transaction_date",
-            "price",
-        ],
+        schema,
     )
 
     # Path where the CSV file will be saved
