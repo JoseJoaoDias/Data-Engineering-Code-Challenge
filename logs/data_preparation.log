@@ -125,3 +125,104 @@
 2025-03-25 18:13:12,722 - INFO - Creating enriched dataset...
 2025-03-25 18:13:12,779 - INFO - Enriched dataset was created
 2025-03-25 18:13:12,779 - INFO - Saving parquet file ...
+2025-03-25 18:54:01,001 - INFO - Validating Sales Dataframe ...
+2025-03-25 18:54:01,002 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 18:54:01,002 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 18:54:01,061 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 18:54:01,205 - INFO - Validation complete
+2025-03-25 18:54:46,036 - INFO - Validating Sales Dataframe ...
+2025-03-25 18:54:46,037 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 18:54:46,037 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 18:54:46,097 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 18:54:46,250 - INFO - Validation complete
+2025-03-25 18:55:44,734 - INFO - Validating Sales Dataframe ...
+2025-03-25 18:55:44,735 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 18:55:44,735 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 18:55:44,803 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 18:55:44,941 - INFO - Validation complete
+2025-03-25 18:56:28,662 - INFO - Validating Sales Dataframe ...
+2025-03-25 18:56:28,663 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 18:56:28,663 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 18:56:28,735 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 18:56:28,885 - INFO - Validation complete
+2025-03-25 18:57:43,588 - INFO - Validating Sales Dataframe ...
+2025-03-25 18:57:43,588 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 18:57:43,588 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 18:57:43,645 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 18:57:43,809 - INFO - Validation complete
+2025-03-25 18:58:20,375 - INFO - Validating Sales Dataframe ...
+2025-03-25 18:58:20,376 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 18:58:20,376 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 18:58:20,440 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 18:58:20,587 - INFO - Validation complete
+2025-03-25 18:59:51,538 - INFO - Loading csv file
+2025-03-25 18:59:54,234 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-25 18:59:54,234 - INFO - Loading csv file
+2025-03-25 18:59:54,448 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-25 18:59:54,448 - INFO - Loading csv file
+2025-03-25 18:59:54,678 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-25 18:59:54,678 - INFO - Validating Sales Dataframe ...
+2025-03-25 18:59:54,678 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 18:59:54,679 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 18:59:54,871 - INFO - Validation complete
+2025-03-25 19:00:48,064 - INFO - Loading csv file
+2025-03-25 19:00:50,617 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/sales_uuid.csv. The dataset has Rows: 200, Columns: 6
+2025-03-25 19:00:50,617 - INFO - Loading csv file
+2025-03-25 19:00:50,825 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/products_uuid.csv. The dataset has Rows: 50, Columns: 3
+2025-03-25 19:00:50,825 - INFO - Loading csv file
+2025-03-25 19:00:51,036 - INFO - Dataset was loaded sucessfully from C:\Users\User\Desktop\Data-Engineering-Code-Challenge\data/stores_uuid.csv. The dataset has Rows: 20, Columns: 3
+2025-03-25 19:00:51,036 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:00:51,036 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:00:51,036 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 19:01:46,966 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:01:46,967 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:01:46,967 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 19:01:47,037 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 19:01:51,532 - INFO - Validation complete
+2025-03-25 19:04:21,279 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:04:21,279 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:04:21,279 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 19:04:21,344 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 19:05:04,607 - INFO - Closing down clientserver connection
+2025-03-25 19:05:18,406 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:05:18,406 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:05:18,406 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 19:05:18,472 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 19:05:20,754 - INFO - Validation complete
+2025-03-25 19:08:50,541 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:08:50,541 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:08:50,541 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 19:08:50,610 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 19:08:55,671 - INFO - Validation complete
+2025-03-25 19:21:55,657 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:22:05,460 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:22:08,872 - INFO - Validation complete
+2025-03-25 19:23:08,982 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:23:08,983 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:23:09,064 - INFO - Validation complete
+2025-03-25 19:24:21,264 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:24:21,264 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:24:21,358 - INFO - Validation complete
+2025-03-25 19:24:49,218 - INFO - Closing down clientserver connection
+2025-03-25 19:32:36,509 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:32:36,510 - ERROR - Schemas do not match for sales dataset. Missing columns: {'transaction_id', 'transaction_date', 'price', 'product_id', 'quantity'}, Extra columns: {'store_name', 'location'}
+2025-03-25 19:37:32,566 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:37:32,567 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:37:32,648 - INFO - Validation complete
+2025-03-25 19:38:00,440 - INFO - Closing down clientserver connection
+2025-03-25 19:49:12,536 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:49:12,537 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:49:12,537 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 19:49:12,603 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 19:49:12,778 - INFO - Validation complete
+2025-03-25 19:51:59,882 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:51:59,883 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:51:59,883 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 19:51:59,951 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 19:52:00,132 - INFO - Validation complete
+2025-03-25 19:56:48,560 - INFO - Validating Sales Dataframe ...
+2025-03-25 19:56:48,560 - INFO - Schemas do match for {df_name} dataset.
+2025-03-25 19:56:48,560 - WARNING - Casting column quantity from LongType() to IntegerType()
+2025-03-25 19:56:48,626 - WARNING - Casting column transaction_date from StringType() to DateType()
+2025-03-25 19:56:48,798 - INFO - Validation complete
+2025-03-25 19:57:34,100 - INFO - Closing down clientserver connection

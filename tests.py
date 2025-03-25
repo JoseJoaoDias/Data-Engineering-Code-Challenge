@@ -6,14 +6,15 @@ and functions for data validation, transformation, and export.
 
 from pyspark.sql import SparkSession
 from conf import settings
-from pyspark.sql.types import IntegerType, LongType, StructType, StructField, StringType, DoubleType
-from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,sales_validation,products_validation,stores_validation
+from pyspark.sql.types import IntegerType, LongType, StructType, StructField, StringType, DoubleType, DateType
+from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,validation
 from challenge_tasks.data_transformations import sales_aggregation,month_insights,enriched_data
 from challenge_tasks.data_export import export_dataframe_as_csv,export_dataframe_as_parquet_by_partitions
 import os
 import csv
 import shutil
 import chispa
+import datetime
 
 spark = SparkSession.builder \
     .appName("TestChallengApp") \
@@ -22,7 +23,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 
-def create_mock_csv(path_test:str):
+def create_mock_csv(test_path):
     # Creation of mock data
     mock_data = [
     ["store_id", "store_name", "location"],
@@ -34,7 +35,7 @@ def create_mock_csv(path_test:str):
     os.makedirs("temp_test", exist_ok=True)
 
     # Define file path
-    file_path = os.path.join("temp_test", "mock_data.csv")
+    file_path = os.path.join(test_path, "mock_data.csv")
 
     # Write to CSV file
     with open(file_path, mode="w", newline="") as file:
@@ -57,6 +58,118 @@ def test_read_csv_file():
     expecetd_columns=["store_id","store_name","location"]
     expecetd_df=spark.createDataframe(expecetd_data,expecetd_columns)
     chispa.assert_df_equality(df,expecetd_df)
+
+def test_sales_validation():
+    # Create sample sales data
+    df = spark.createDataFrame([
+        ("tra_1", "str_1", "pro_1", 5, "2024-11-01", 20.0),
+        ("tra_2", None, "pro_2", 10, "2024-11-02", 40.0),
+        ("tra_3", "Null", "pro_4", 15, "2024-11-04", 60.0),
+        ("tra_4", "None", "pro_4", 20, "2024-11-05", 80.0),
+        ("tra_5", "", "pro_4", 25, "2024-11-06", 100.0),
+        ("tra_6", "str_2", None, 30, "2024-11-07", 120.0),
+        ("tra_7", "str_2","Null", 35, "2024-11-08", 140.0),
+        ("tra_8", "str_2","None", 40, "2024-11-09", 160.0),
+        ("tra_9", "str_2","", 45, "2024-11-10", 170.0),
+        (None, "str_3", "pro_4", 50, "2024-11-11",180.0),
+        ("Null", "str_3", "pro_4", 55, "2024-11-12", 190.0),
+        ("None", "str_3", "pro_4", 60, "2024-11-13", 200.0),
+        ("tra_10", "str_3", "pro_4", 65, "2024-11-14", 220.0),
+        ("tra_10", "str_3", "pro_5", 70, "2024-11-15", 240.0),
+        ("tra_11", "str_4", "pro_5", 75, "2024-11-16", 260.0),
+        ("tra_12", "str_4", "pro_5", 80, "2024-11-16", -260.0),
+        ("tra_13", "str_4", "pro_5", -80, "2024-11-16", 280.0)
+    ], ["transaction_id", "store_id", "product_id", "quantity", "transaction_date", "price"])
+
+  
+    # Validated data using method
+    df_validation=validation(df=df,df_name='sales')
+    df_validation.show()
+    df_validation.printSchema()
+    # Create expected dataframe
+    schema = StructType([
+        StructField("transaction_id", StringType(), True),
+        StructField("store_id", StringType(), True),
+        StructField("product_id", StringType(), True),
+        StructField("quantity", IntegerType(), True),
+        StructField("transaction_date",DateType(), True),
+        StructField("price", DoubleType(), True)
+        ])
+
+    expected_df_validation = spark.createDataFrame([
+        ("tra_1", "str_1", "pro_1", 5, datetime.date(2024, 11, 1), 20.0),
+        ("tra_10", "str_3", "pro_4", 65, datetime.date(2024, 11, 14), 220.0),
+        ("tra_11", "str_4", "pro_5", 75,datetime.date(2024, 11, 16), 260.0),
+        ], schema)
+    
+    expected_df_validation.show()
+    expected_df_validation.printSchema()
+
+    # Check that the output of sales data validation is correct
+    chispa.assert_df_equality(df_validation, expected_df_validation, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True)
+
+def test_products_validation():
+
+    # Create sample product data
+    df = spark.createDataFrame([
+        ("pro_1", "Product A", "Category A"),
+        ("None", "Product B", "Category B"),
+        ("Null", "Product B", "Category B"),
+        (None, "Product B", "Category B"),
+        ("pro_1", "Product B", "Category B"),
+        ("pro_2", "Product B", "Category B"),
+        ("pro_3", "Product B", "Category B"),
+        ("pro_4", "Product C", "Category C")
+    ], ["product_id", "product_name", "category"])
+
+
+    # Validated data using method
+    df_validation = validation(df=df,df_name='products')
+
+    # Create expected dataframe
+    schema = StructType([
+    StructField("product_id", StringType(), True),
+    StructField("product_name", StringType(), True),
+    StructField("category", StringType(), True)
+    ])
+    expected_df_validation = spark.createDataFrame([
+        ("pro_1", "Product A", "Category A"),
+        ("pro_2", "Product B", "Category B"),
+        ("pro_4", "Product C", "Category C")
+        ], schema)
+
+    # Check that the output of products data validation is correct
+    chispa.assert_df_equality(df_validation, expected_df_validation, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True)
+
+def test_store_validation():
+    # Create sample stores data
+    df = spark.createDataFrame([
+        ("str_1", "Store A", "Location A"),
+        ("None", "Store A", "Location A"),
+        ("Null", "Store A", "Location A"),
+        ("null ", "Store A", "Location A"),
+        (None, "Store B", "Location B"),
+        ("str_3", "Store C", "Location C"),
+        ("str_3", "Store C", "Location C"),
+        ("str_4", "Store C", "Location C")
+    ], ["store_id", "store_name", "location"])
+
+    # Validated data using method
+    df_validation = validation(df=df,df_name='stores')
+
+    # Create expected dataframe
+    schema = StructType([
+    StructField("store_id", StringType(), True),
+    StructField("store_name", StringType(), True),
+    StructField("location", StringType(), True)
+    ])
+    expected_df_validation = spark.createDataFrame([
+        ("str_1", "Store A", "Location A"),
+        ("str_3", "Store C", "Location C")
+        ], schema)
+
+    # Check that the output of stores data validation is correct
+    chispa.assert_df_equality(df_validation, expected_df_validation, ignore_column_order=True, ignore_nullable=True, ignore_row_order=True)
 
 
 def test_sales_aggregation():
@@ -238,7 +351,6 @@ def test_export_dataframe_as_parquet_by_partitions():
     # Clean up temporary files
     if os.path.exists('temp_test'):
         shutil.rmtree('temp_test')
-        print("Cleaned up test files.")
 
 def test_export_dataframe_as_csv():
     # Create a DataFrame to be written
@@ -262,7 +374,6 @@ def test_export_dataframe_as_csv():
     # Manually perform cleanup after running tests
     if os.path.exists('temp_test'):
         shutil.rmtree('temp_test')
-        print("Cleaned up test files.")
 
 
-test_enriched_data_price_range()
+test_sales_validation()

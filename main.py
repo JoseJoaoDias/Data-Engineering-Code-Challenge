@@ -37,11 +37,8 @@ df_stores=read_csv_into_pyspark_dataframe(file_path=settings.STORES_FILE)
 
 # Task 2 - Data validation
 df_sales=validation(df=df_sales,df_name='sales')
-df_sales.show()
 df_products=validation(df=df_products,df_name='products')
-df_sales.show()
 df_stores=validation(df=df_stores,df_name='stores')
-df_sales.show()
 
 ## Part 2 - Tasks
 # Task 1 - Sales Aggregation - Calculate the total revenue for each store (store_id) and each product category.

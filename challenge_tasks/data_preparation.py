@@ -14,7 +14,7 @@ from pyspark.sql import DataFrame
 import os
 import logging
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType,DateType
-from pyspark.sql.functions import col,date_format,to_date, coalesce,trim
+from pyspark.sql.functions import col,date_format,to_date, coalesce,trim, upper
 from challenge_tasks.spark_session import spark
 
 ## Setup logging configuration
@@ -99,7 +99,6 @@ def validation(df : DataFrame, df_name:str) -> DataFrame:
     if df_name== 'sales':
          expected_schema=expected_schema_sales
     elif df_name=='products':
-        print('products')
         expected_schema=expected_schema_product
     else :
         expected_schema=expected_schema_store
@@ -133,31 +132,38 @@ def validation(df : DataFrame, df_name:str) -> DataFrame:
                         to_date(col(field.name), "dd/MM/yyyy")
                     )
                 )
-                df = df.withColumn(field.name, date_format(col(field.name), "yyyy-MM-dd"))
+                df = df.withColumn(field.name, date_format(col(field.name), "yyyy-MM-dd").cast(field.dataType))
             else:
                 df = df.withColumn(field.name, col(field.name).cast(field.dataType))
         
-    # Drop Nulls in all columns if any
+    # Assess id columns and columns that will have the nulls values removed
     id_cols = [c for c in df.columns if "id" in c.lower()]
     cols_to_clean= [c for c in df.columns if "id" in c.lower()]
+    
+    # for sales dataset defines the id columns and columns to be cleaned from null values
     if df_name=='sales':
         cols_to_clean = df.columns
         id_cols=['transaction_id']
-
+    # Cleaning null values
     for c in cols_to_clean:
         df = df.filter(
-            (~col(c).contains("None")) &     # Filter out 'None' as string
-            (~col(c).contains("NULL")) &     # Filter out 'NULL' as string
-            (trim(col(c)) != "") &           # Filter out empty strings
+            (trim(col(c)) != "") &                                    # Remove empty strings
+            (~upper(trim(col(c))).contains("NULL")) &                 # Remove case-insensitive 'NULL'
+            (~upper(trim(col(c))).contains("NONE")) &                   # Remove case-insensitive 'NONE'
             (col(c).isNotNull())             # Remove actual nulls
-        )
+        )            
+    # Drop duplicates for id columns in Sales all ids, in stores store_id and in products product id
     df=df.drop_duplicates(id_cols)
+        
+    # Guarantee in sales that the price and quantity are bigger than 0
     if df_name=='sales':
             df = df.filter(
                 (col("quantity") >= 0) & 
                 (col("price") >= 0)
             )
-
+    else:
+        non_id_cols = [c for c in df.columns if "id" not in c.lower()] # non id columns for stores and products
+        df=df.drop_duplicates(non_id_cols) # drop of duplicates combination of products and store dataframe
 
     # Drop duplicates in  column transaction_id if any
     logging.info("Validation complete")
