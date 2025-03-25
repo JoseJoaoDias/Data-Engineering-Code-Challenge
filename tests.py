@@ -76,7 +76,7 @@ def test_read_csv_file():
     ]
     # Creation of mock csv
     expecetd_columns = ["store_id", "store_name", "location"]
-    expecetd_df = spark.createDataframe(expecetd_data, expecetd_columns)
+    expecetd_df = spark.createDataFrame(expecetd_data, expecetd_columns)
     chispa.assert_df_equality(df, expecetd_df)
 
 
