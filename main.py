@@ -60,13 +60,13 @@ enriched_dataframe_category_price = enriched_data(df_sales=df_sales, df_product=
 enriched_dataframe.show(5)
 enriched_dataframe_category_price.show(5)
 # ## Part 3 -Tasks
-# # Task 1 - Save Enrich Data into a parquet format partitioned by category and transaction_date
-# export_dataframe_as_parquet_by_partitions(
-#     df=enriched_dataframe, 
-#     df_name= 'enriched_dataframe',
-#     output_path = settings.OUTPUT_PATH, 
-#     partions = ["category","transaction_date"]
-# )
+# Task 1 - Save Enrich Data into a parquet format partitioned by category and transaction_date
+export_dataframe_as_parquet_by_partitions(
+    df=enriched_dataframe, 
+    df_name= 'enriched_dataframe',
+    output_path = settings.OUTPUT_PATH, 
+    partions = ["category","transaction_date"]
+)
 
 # # Task 2 - Save revenue insights in CSV format
 export_dataframe_as_csv(df=sales_agg,
