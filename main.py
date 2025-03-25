@@ -7,10 +7,10 @@ Main sript uses the functions from another scrips to perform the tasks.
 import os
 import logging
 from conf import settings
-from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,sales_validation,products_validation,stores_validation, spark  as spark_preparation
+from challenge_tasks.data_preparation import read_csv_into_pyspark_dataframe,validation#, spark  as spark_preparation
 from challenge_tasks.data_transformations import sales_aggregation,month_insights,enriched_data
 from challenge_tasks.data_export import export_dataframe_as_csv,export_dataframe_as_parquet_by_partitions
-from challenge_tasks.spark_session import spark
+
 # Setup logging configuration
 # Path to logs file
 log_dir = os.path.abspath("logs")  
@@ -29,14 +29,6 @@ logging.basicConfig(
 
 logger=logging.getLogger(__name__)
 
-# # Create Spark Session
-# spark = SparkSession.builder \
-#     .appName("Data Challeng App") \
-#     .config("spark.hadoop.hadoop.native.lib", "false") \
-#     .config("spark.driver.memory", "4g")\
-#     .master("local[*]") \
-#     .getOrCreate()
-
 ## Part 1 - Tasks
 # Task 1 - Loaded 3 datasets
 df_sales=read_csv_into_pyspark_dataframe(file_path=settings.SALES_FILE)
@@ -44,9 +36,13 @@ df_products=read_csv_into_pyspark_dataframe(file_path=settings.PRODUCTS_FILE)
 df_stores=read_csv_into_pyspark_dataframe(file_path=settings.STORES_FILE)
 
 # Task 2 - Data validation
-df_sales=sales_validation(df=df_sales)
-df_products=products_validation(df=df_products)
-df_stores=stores_validation(df=df_stores)
+df_sales=validation(df=df_sales,df_name='sales')
+df_sales.show()
+df_products=validation(df=df_products,df_name='products')
+df_sales.show()
+df_stores=validation(df=df_stores,df_name='stores')
+df_sales.show()
+
 ## Part 2 - Tasks
 # Task 1 - Sales Aggregation - Calculate the total revenue for each store (store_id) and each product category.
 sales_agg=sales_aggregation(df_sales=df_sales,df_product=df_products,)
