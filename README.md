@@ -26,7 +26,7 @@ This project processes, analysis and infer some insights from raw data related t
 
 ## Assumptions and Decisions.
  ### Assumptions:
-- Data Format : The CSV files used as input are formatted correctly with headers matching the expected structure.
+- **Data Format** : The CSV files used as input are formatted correctly with headers matching the expected structure.
 
 ### Decisions:
 **Sesssion**
@@ -63,25 +63,25 @@ This project processes, analysis and infer some insights from raw data related t
 ## File Structure
 ```
 DATA-ENGINEERING-CODE-CHALLENGE 
-├──.github/
+├── .github/
 │ ├── workflows/
 │ │ ├── ci.yml
-├──challenge_tasks/
+├── challenge_tasks/
 │ │── init.py
 │ │──data_export.py
 │ │──data_preparation.py
 │ │──data_transformations.py │ 
 │ ├── spark_session.py
-├──conf/
+├── conf/
 │ ├── init.py
 │ ├── settings.py
-├──data/
+├── data/
 │ ├── products_uuid.csv # Data related to products (UUIDs) 
 │ ├── sales_uuid.csv # Data related to sales (UUIDs)  
 │ ├── stores_uuid.csv # Data related to stores (UUIDs) 
-├──logs/
-├──output/
-├──.gitignore
+├── logs/
+├── output/
+├── .gitignore
 ├── main.py
 ├── README.md
 ├── requirements.txt
