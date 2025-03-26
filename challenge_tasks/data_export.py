@@ -50,7 +50,6 @@ def export_dataframe_as_csv(df: DataFrame, df_name: str, output_path: str):
 
     temp_folder = output_path_final.replace(".csv", "_temp")
 
-
     # Write as a single CSV file
     df.coalesce(1).write.mode("overwrite").option("header", "true").csv(temp_folder)
 

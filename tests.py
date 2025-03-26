@@ -35,12 +35,7 @@ import logging
 
 # Deactivate logs
 logging.disable(logging.CRITICAL)
-spark = (
-    SparkSession.builder.appName("TestChallengApp")
-    .config("spark.hadoop.hadoop.native.lib", "false")
-    .master("local[*]")
-    .getOrCreate()
-)
+spark = SparkSession.builder.appName("TestChallengApp").getOrCreate()
 
 
 def create_mock_csv(test_path):
@@ -620,7 +615,7 @@ def test_export_dataframe_as_csv():
                 "Category A",
                 "5",
                 "2025-03-01",
-                "10.0"
+                "10.0",
             ),
             (
                 "tra_2",
@@ -630,7 +625,7 @@ def test_export_dataframe_as_csv():
                 "Category B",
                 "10",
                 "2025-03-02",
-                "40.0"         
+                "40.0",
             ),
             (
                 "tra_3",
@@ -640,7 +635,7 @@ def test_export_dataframe_as_csv():
                 "Category C",
                 "30",
                 "2025-03-04",
-                "160.0"            
+                "160.0",
             ),
         ],
         schema,
@@ -657,7 +652,9 @@ def test_export_dataframe_as_csv():
     assert os.path.exists(output_file), f"CSV file was not created at {output_file}"
 
     # Read back the CSV file into a DataFrame
-    df_read_back = spark.read.option("header", "true").csv(os.path.join(output_path,'test_csv.csv'))
+    df_read_back = spark.read.option("header", "true").csv(
+        os.path.join(output_path, "test_csv.csv")
+    )
 
     # Compare the DataFrame that was written and the DataFrame read back
     chispa.assert_df_equality(
@@ -672,6 +669,9 @@ def test_export_dataframe_as_csv():
     if os.path.exists(settings.TEST_TEMP_PATH):
         shutil.rmtree(settings.TEST_TEMP_PATH)
 
+
+# End Spark Session
+spark.stop()
 
 # Enable logging
 logging.disable(logging.NOTSET)
