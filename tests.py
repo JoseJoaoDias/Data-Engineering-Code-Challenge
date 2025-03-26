@@ -43,9 +43,11 @@ spark = (
     .getOrCreate()
 )
 
+  
 
-def create_mock_csv(test_path):
-    # Creation of mock data
+def test_read_csv_file():
+
+ # Creation of mock data
     mock_data = [
         ["store_id", "store_name", "location"],
         ["str_1", "Store A", "Location A"],
@@ -63,12 +65,9 @@ def create_mock_csv(test_path):
         writer = csv.writer(file)
         writer.writerows(mock_data)
 
-
-def test_read_csv_file():
     # Define file path
     test_path = settings.TEST_TEMP_PATH
     # Creation of mock csv
-    create_mock_csv(test_path)
     df = read_csv_into_pyspark_dataframe(test_path)
     # Expected Data
     expecetd_data = [

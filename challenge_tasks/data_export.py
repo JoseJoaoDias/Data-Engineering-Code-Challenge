@@ -38,7 +38,7 @@ def export_dataframe_as_csv(df: DataFrame, df_name: str, output_path: str):
 
     Args:
         df (DataFrame): The PySpark DataFrame to be saved as a CSV file.
-        output_path (str): The desired output file path (e.g., "final_output.csv").
+        output_path (str): The desired output file path (e.g., "name_datrame.csv").
 
     Returns:
         None

@@ -45,6 +45,7 @@ def sales_aggregation(df_product: DataFrame, df_sales: DataFrame) -> DataFrame:
     Args:
     df_product (DataFrame): Validated product dataset.
     df_sales (DataFrame): Validated sales dataset.
+    
 
     Return:
     df_result (DataFrame): Aggregated PySpark DataFrame with total revenue per store and category
@@ -166,7 +167,7 @@ def enriched_data(
             "price_category", price_range_udf(df_enriched["price"])
         )
 
-    # Drop Nulls if any
+    # Filtering null values that may exist
     df_result = (
         df_enriched.filter(F.col("store_name").isNotNull())
         .filter(F.col("location").isNotNull())
