@@ -604,9 +604,9 @@ def test_export_dataframe_as_csv():
             StructField("location", StringType(), True),
             StructField("product_name", StringType(), True),
             StructField("category", StringType(), True),
-            StructField("quantity", LongType(), True),
+            StructField("quantity", StringType(), True),
             StructField("transaction_date", StringType(), True),
-            StructField("price", DoubleType(), True),
+            StructField("price", StringType(), True),
         ]
     )
 
@@ -618,9 +618,9 @@ def test_export_dataframe_as_csv():
                 "Location A",
                 "Product A",
                 "Category A",
-                5,
+                "5",
                 "2025-03-01",
-                10.0
+                "10.0"
             ),
             (
                 "tra_2",
@@ -628,9 +628,9 @@ def test_export_dataframe_as_csv():
                 "Location B",
                 "Product B",
                 "Category B",
-                10,
+                "10",
                 "2025-03-02",
-                40.0           
+                "40.0"         
             ),
             (
                 "tra_3",
@@ -638,9 +638,9 @@ def test_export_dataframe_as_csv():
                 "Location C",
                 "Product C",
                 "Category C",
-                30,
+                "30",
                 "2025-03-04",
-                160.0             
+                "160.0"            
             ),
         ],
         schema,
@@ -651,6 +651,10 @@ def test_export_dataframe_as_csv():
 
     # Export the DataFrame to a CSV file
     export_dataframe_as_csv(df=df, df_name="test_csv", output_path=output_path)
+
+    # Check if the path exists
+    output_file = os.path.join(output_path, "test_csv.csv")
+    assert os.path.exists(output_file), f"CSV file was not created at {output_file}"
 
     # Read back the CSV file into a DataFrame
     df_read_back = spark.read.option("header", "true").csv(os.path.join(output_path,'test_csv.csv'))
