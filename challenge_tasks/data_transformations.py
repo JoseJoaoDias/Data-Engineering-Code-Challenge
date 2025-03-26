@@ -45,7 +45,7 @@ def sales_aggregation(df_product: DataFrame, df_sales: DataFrame) -> DataFrame:
     Args:
     df_product (DataFrame): Validated product dataset.
     df_sales (DataFrame): Validated sales dataset.
-    
+
 
     Return:
     df_result (DataFrame): Aggregated PySpark DataFrame with total revenue per store and category
