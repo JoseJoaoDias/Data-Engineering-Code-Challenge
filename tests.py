@@ -43,11 +43,10 @@ spark = (
     .getOrCreate()
 )
 
-  
 
 def test_read_csv_file():
 
- # Creation of mock data
+    # Creation of mock data
     mock_data = [
         ["store_id", "store_name", "location"],
         ["str_1", "Store A", "Location A"],
@@ -65,7 +64,6 @@ def test_read_csv_file():
     with open(file_path, mode="w", newline="") as file:
         writer = csv.writer(file)
         writer.writerows(mock_data)
-
 
     # Creation of mock csv
     df = read_csv_into_pyspark_dataframe(test_path)
@@ -673,6 +671,7 @@ def test_export_dataframe_as_csv():
     # Manually perform cleanup after running tests
     if os.path.exists(settings.TEST_TEMP_PATH):
         shutil.rmtree(settings.TEST_TEMP_PATH)
+
 
 # Enable logging
 logging.disable(logging.NOTSET)
