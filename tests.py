@@ -35,7 +35,13 @@ import logging
 
 # Deactivate logs
 logging.disable(logging.CRITICAL)
-spark = SparkSession.builder.appName("TestChallengApp").getOrCreate()
+
+spark = (
+    SparkSession.builder.appName("TestChallengApp")
+    .config("spark.hadoop.hadoop.native.lib", "false")
+    .master("local[*]")
+    .getOrCreate()
+)
 
 
 def create_mock_csv(test_path):
