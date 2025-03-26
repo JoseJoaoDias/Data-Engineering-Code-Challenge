@@ -675,9 +675,5 @@ def test_export_dataframe_as_csv():
     if os.path.exists(settings.TEST_TEMP_PATH):
         shutil.rmtree(settings.TEST_TEMP_PATH)
 
-
-# End Spark Session
-spark.stop()
-
 # Enable logging
 logging.disable(logging.NOTSET)
